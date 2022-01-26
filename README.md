@@ -1,5 +1,5 @@
-# 🦊 FoxCMD
-A command line tool
+![Banner](https://github.com/ItsFoxDev/FoxCMD/raw/main/banner.png)
+---
 ## ⬇️ Install
 Simply run this command in your terminal
 ```
