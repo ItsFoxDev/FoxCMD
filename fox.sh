@@ -41,6 +41,7 @@ if [ "$1" == "list" ]; then
 fi
 if [ $# -eq 0 ]; then
   echo ""
+  echo "🦊 FoxCMD v2.1.1"
   sleep $del
   echo "==== 📄 Commands 📄 ===="
   sleep $del
@@ -80,39 +81,39 @@ fi
 if [ "$1" == "starwars" ]; then
   echo "Loading starwars. To exit, press CTRL+C"
   sleep 0.03
-  echo "#----------------\\r"
+  echo -ne "#----------------\r"
   sleep 0.1
-  echo "##---------------\\r"
+  echo -ne "##---------------\r"
   sleep 0.1
-  echo "###--------------\\r"
+  echo -ne "###--------------\r"
   sleep 0.1
-  echo "####-------------\\r"
+  echo -ne "####-------------\r"
   sleep 0.1
-  echo "#####------------\\r"
+  echo -ne "#####------------\r"
   sleep 0.1
-  echo "######-----------\\r"
+  echo -ne "######-----------\r"
   sleep 0.1
-  echo "#######----------\\r"
+  echo -ne "#######----------\r"
   sleep 0.1
-  echo "########---------\\r"
+  echo -ne "########---------\r"
   sleep 0.1
-  echo "#########--------\\r"
+  echo -ne "#########--------\r"
   sleep 0.1
-  echo "##########-------\\r"
+  echo -ne "##########-------\r"
   sleep 0.1
-  echo "###########------\\r"
+  echo -ne "###########------\r"
   sleep 0.1
-  echo "############-----\\r"
+  echo -ne "############-----\r"
   sleep 0.1
-  echo "#############----\\r"
+  echo -ne "#############----\r"
   sleep 0.1
-  echo "##############---\\r"
+  echo -ne "##############---\r"
   sleep 0.1
-  echo "###############--\\r"
+  echo -ne "###############--\r"
   sleep 0.1
-  echo "################-\\r"
+  echo -ne "################-\r"
   sleep 0.1
-  echo "#################\\r"
+  echo -ne "#################\r"
   sleep 0.3
   nc towel.blinkenlights.nl 23
 fi
