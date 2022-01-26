@@ -9,6 +9,7 @@ Simply run this command in your macOS terminal
 The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-Legacy)
 
 # 📄 Commands
+```
 ℹ️ COMMAND     • DESCRIPTION                 • ARGUMENTS
 --------------------------------------------------------
 ⬇️ install     • Installs a package          • <package>
@@ -17,3 +18,4 @@ The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-L
 👀 hdi         • Hides icons on your desktop • <y/n>
 ⭐️ starwars    • Watch ascii starwars        • No arguments
 🆕 New commands coming soon!
+```
