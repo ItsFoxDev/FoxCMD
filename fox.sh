@@ -81,39 +81,39 @@ fi
 if [ "$1" == "starwars" ]; then
   echo "Loading starwars. To exit, press CTRL+C"
   sleep 0.03
-  echo -ne '#----------------\r'
+    echo -e '\r#----------------'
   sleep 0.1
-  echo -ne '##---------------\r'
+  echo -e '\r##---------------'
   sleep 0.1
-  echo -ne '###--------------\r'
+  echo -e '\r###--------------'
   sleep 0.1
-  echo -ne '####-------------\r'
+  echo -e '\r####-------------'
   sleep 0.1
-  echo -ne '#####------------\r'
+  echo -e '\r#####------------'
   sleep 0.1
-  echo -ne '######-----------\r'
+  echo -e '\r######-----------'
   sleep 0.1
-  echo -ne '#######----------\r'
+  echo -e '\r#######----------'
   sleep 0.1
-  echo -ne '########---------\r'
+  echo -e '\r########---------'
   sleep 0.1
-  echo -ne '#########--------\r'
+  echo -e '\r#########--------'
   sleep 0.1
-  echo -ne '##########-------\r'
+  echo -e '\r##########-------'
   sleep 0.1
-  echo -ne '###########------\r'
+  echo -e '\r###########------'
   sleep 0.1
-  echo -ne '############-----\r'
+  echo -e '\r############-----'
   sleep 0.1
-  echo -ne '#############----\r'
+  echo -e '\r#############----'
   sleep 0.1
-  echo -ne '##############---\r'
+  echo -e '\r##############---'
   sleep 0.1
-  echo -ne '###############--\r'
+  echo -e '\r###############--'
   sleep 0.1
-  echo -ne '################-\r'
+  echo -e '\r################-'
   sleep 0.1
-  echo -ne '#################\r'
+  echo -e '\r#################'
   sleep 0.3
   nc towel.blinkenlights.nl 23
 fi
