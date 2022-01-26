@@ -19,7 +19,7 @@ The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-L
 📦 list        • Lists installable packages  • No arguments
 👀 hdi         • Hides icons on your desktop • <y/n>
 ⭐️ starwars    • Watch ascii starwars        • No arguments
-
+🎚 dock        • Tweaks your dock            • <function or "list">
 Command syntax: "fox <command> <arguments>"
 
 🆕 New commands coming soon!
