@@ -59,7 +59,7 @@ if [ $# -eq 0 ]; then
   sleep $del
   echo "⭐️ starwars    • Watch ascii starwars        • No arguments"
   sleep $del
-  echo "🎚 dock        • Tweaks your dock            • <function or \"list\">"
+  echo "🎚  dock        • Tweaks your dock            • <function or \"list\">"
   sleep $del
   echo ""
   sleep $del
