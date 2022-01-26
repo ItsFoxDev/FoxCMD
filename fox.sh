@@ -80,40 +80,6 @@ if [ "$1" == "hdi" ]; then
 fi
 if [ "$1" == "starwars" ]; then
   echo "Loading starwars. To exit, press CTRL+C"
-  sleep 0.03
-    echo -e '\r#----------------'
-  sleep 0.1
-  echo -e '\r##---------------'
-  sleep 0.1
-  echo -e '\r###--------------'
-  sleep 0.1
-  echo -e '\r####-------------'
-  sleep 0.1
-  echo -e '\r#####------------'
-  sleep 0.1
-  echo -e '\r######-----------'
-  sleep 0.1
-  echo -e '\r#######----------'
-  sleep 0.1
-  echo -e '\r########---------'
-  sleep 0.1
-  echo -e '\r#########--------'
-  sleep 0.1
-  echo -e '\r##########-------'
-  sleep 0.1
-  echo -e '\r###########------'
-  sleep 0.1
-  echo -e '\r############-----'
-  sleep 0.1
-  echo -e '\r#############----'
-  sleep 0.1
-  echo -e '\r##############---'
-  sleep 0.1
-  echo -e '\r###############--'
-  sleep 0.1
-  echo -e '\r################-'
-  sleep 0.1
-  echo -e '\r#################'
-  sleep 0.3
+  sleep 1
   nc towel.blinkenlights.nl 23
 fi
