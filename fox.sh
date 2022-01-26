@@ -1,10 +1,10 @@
 del=0.03
 if [ "$1" == "install" ]; then
-  if [ "$2" == "brew"]; then
+  if [ "$2" == "brew" ]; then
     echo "🍺 Installing homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
-  if [ "$2" == "spicetify"]; then
+  if [ "$2" == "spicetify" ]; then
     echo "🌶 Installing spicetify..."
     curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh
     curl -fsSL https://raw.githubusercontent.com/CharlieS1103/spicetify-marketplace/main/install.sh | sh
