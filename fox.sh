@@ -47,7 +47,9 @@ if [ $# -eq 0 ]; then
   sleep $del
   echo ""
   sleep $del
-  echo "ℹ️  COMMAND      • DESCRIPTION                • ARGUMENTS"
+  echo "ℹ️  COMMAND     • DESCRIPTION                 • ARGUMENTS"
+  sleep $del
+  echo "--------------------------------------------------------"
   sleep $del
   echo "⬇️  install     • Installs a package          • <package>"
   sleep $del
