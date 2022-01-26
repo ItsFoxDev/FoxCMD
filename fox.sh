@@ -41,7 +41,7 @@ if [ "$1" == "list" ]; then
 fi
 if [ $# -eq 0 ]; then
   echo ""
-  echo "🦊 FoxCMD v2.1.1a"
+  echo "🦊 FoxCMD v2.1.1b"
   sleep $del
   echo "===== 📄 Commands ======================================="
   sleep $del
