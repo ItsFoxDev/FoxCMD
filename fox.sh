@@ -46,17 +46,21 @@ if [ $# -eq 0 ]; then
   sleep $del
   echo ""
   sleep $del
-  echo "⬇️  install     • Installs a package"
+  echo "ℹ️  COMMAND      • DESCRIPTION                • ARGUMENTS"
   sleep $del
-  echo "⬆️  update      • Updates FoxCMD"
+  echo "⬇️  install     • Installs a package          • <package>"
   sleep $del
-  echo "📦 list        • Lists installable packages"
+  echo "⬆️  update      • Updates FoxCMD              • No arguments" 
   sleep $del
-  echo "👀 hdi <y/n>   • Hides icons on your desktop"
+  echo "📦 list        • Lists installable packages  • No arguments"
+  sleep $del
+  echo "👀 hdi         • Hides icons on your desktop • <y/n>" 
+  sleep $del
+  echo "⭐️ starwars    • Watch ascii starwars        • No arguments"
   sleep $del
   echo ""
   sleep $del
-  echo "Command syntax: fox <command> <arguments>"
+  echo "Command syntax: \"fox <command> <arguments>\""
   sleep $del
   echo ""
   sleep $del
@@ -72,4 +76,7 @@ if [ "$1" == "hdi" ]; then
     killall Finder
     echo "✅ Unhid desktop icons. To hide, run \"fox hdi y\"" 
   fi
+fi
+if [ "$1" == "starwars" ]; then
+  nc towel.blinkenlights.nl 23
 fi
