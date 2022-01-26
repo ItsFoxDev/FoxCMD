@@ -41,13 +41,13 @@ if [ "$1" == "list" ]; then
 fi
 if [ $# -eq 0 ]; then
   echo ""
-  echo "🦊 FoxCMD v2.1.1b"
+  echo "🦊 FoxCMD v2.1.3"
   sleep $del
   echo "===== 📄 Commands ======================================="
   sleep $del
   echo "ℹ️  COMMAND     • DESCRIPTION                 • ARGUMENTS"
   sleep $del
-  echo "--------------------------------------------------------"
+  echo "---------------------------------------------------------"
   sleep $del
   echo "⬇️  install     • Installs a package          • <package>"
   sleep $del
@@ -58,6 +58,8 @@ if [ $# -eq 0 ]; then
   echo "👀 hdi         • Hides icons on your desktop • <y/n>" 
   sleep $del
   echo "⭐️ starwars    • Watch ascii starwars        • No arguments"
+  sleep $del
+  echo "🎚 dock        • Tweaks your dock            • <function or \"list\">"
   sleep $del
   echo ""
   sleep $del
@@ -83,3 +85,34 @@ if [ "$1" == "starwars" ]; then
   sleep 1
   nc towel.blinkenlights.nl 23
 fi
+if [ "$1" == "dock" ]; then
+  if [ "$2" == "addspace" ]; then
+    defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
+    killall Dock
+    echo "✅ Added a spacer to your dock."
+    echo "ℹ️ If it didn't work, you may have to run the command again."
+  fi
+  if [ "$2" == "reset" ]; then
+    read -p "Are you sure you want to reset your dock? y/n: " confirm
+    if [ "$confirm" == "y" ]; then
+      defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
+      killall Dock
+      echo "✅ Reset your dock to system defaults."
+    elif [ "$confirm" == "n" ]; then
+      echo "❌ Dock reset canceled."
+    else
+      echo "❌ Please enter either \"y\" or \"n\"."
+    fi
+  fi
+  if [ "$2" == "list" ]; then
+    echo ""
+    sleep $del
+    echo "==== 📄 DOCK COMMANDS ============"
+    sleep $del
+    echo "❌ Reset     • Resets your dock to system defaults"
+    sleep $del
+    echo "🪐 Addspace  • Adds a blank spacer to your dock"
+    sleep $del
+    echo ""
+fi
+  
