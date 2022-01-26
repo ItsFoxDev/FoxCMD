@@ -114,5 +114,6 @@ if [ "$1" == "dock" ]; then
     echo "🪐 Addspace  • Adds a blank spacer to your dock"
     sleep $del
     echo ""
+  fi
 fi
   
