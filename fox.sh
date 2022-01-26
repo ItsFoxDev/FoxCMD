@@ -30,7 +30,7 @@ fi
 if [ "$1" == "list" ]; then
   echo ""
   sleep $del
-  echo "==== 📦 Packages 📦 ===="
+  echo "======= 📦 Packages 📦 ======="
   sleep $del
   echo "🍺 brew        • Package manager"
   sleep $del
@@ -43,9 +43,7 @@ if [ $# -eq 0 ]; then
   echo ""
   echo "🦊 FoxCMD v2.1.1a"
   sleep $del
-  echo "==== 📄 Commands 📄 ===="
-  sleep $del
-  echo ""
+  echo "===== 📄 Commands ======================================="
   sleep $del
   echo "ℹ️  COMMAND     • DESCRIPTION                 • ARGUMENTS"
   sleep $del
