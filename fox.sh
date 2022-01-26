@@ -52,6 +52,24 @@ if [ $# -eq 0 ]; then
   sleep $del
   echo "📦 list        • Lists installable packages"
   sleep $del
+  echo "👀 hdi <y/n>   • Hides icons on your desktop"
+  sleep $del
   echo ""
   sleep $del
+  echo "Command syntax: fox <command> <arguments>"
+  sleep $del
+  echo ""
+  sleep $del
+fi
+if [ "$1" == "hdi" ]; then
+  if [ "$2" == "y" ]; then
+    defaults write com.apple.finder CreateDesktop false
+    killall Finder
+    echo "✅ Hid desktop icons. To unhide, run \"fox hdi n\"" 
+  fi
+  if [ "$2" == "n" ]; then
+    defaults write com.apple.finder CreateDesktop true
+    killall Finder
+    echo "✅ Unhid desktop icons. To hide, run \"fox hdi y\"" 
+  fi
 fi
