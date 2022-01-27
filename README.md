@@ -24,4 +24,3 @@ Command syntax: "fox <command> <arguments>"
 
 🆕 New commands coming soon!
 ```
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=ItsFoxDev&repo=FoxCMD)](https://github.com/anuraghazra/github-readme-stats)
