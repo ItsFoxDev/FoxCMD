@@ -63,7 +63,7 @@ if [ "$1" == "list" ]; then
   sleep $del
   echo "🌶  spicetify   • Themes for Spotify"
   sleep $del
-  echo "🎥 ffmpeg       • Video encoder"
+  echo "🎥 ffmpeg      • Video encoder"
   sleep $del
   echo ""
   sleep $del
