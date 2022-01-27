@@ -23,7 +23,7 @@ if [ "$1" == "install" ]; then
     echo ""
     echo "📥 Downloading dependency ffprobe..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o /usr/local/bin/ffprobe.zip
-    echo "⚡️ Unpacking ffprobe..."
+    echo "⚡️ Installing ffprobe..."
     unzip -o -q /usr/local/bin/ffprobe.zip -d /usr/local/bin/
     echo "🚦 Verifying..."
     chmod +x /usr/local/bin/ffprobe
