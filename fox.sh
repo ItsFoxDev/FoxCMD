@@ -10,31 +10,36 @@ if [ "$1" == "install" ]; then
     curl -fsSL https://raw.githubusercontent.com/CharlieS1103/spicetify-marketplace/main/install.sh | sh
   fi
   if [ "$2" == "ffmpeg" ]; then
+    echo ""
+    echo "ℹ️ Note: This may take a while. It may not seem like it is doing anything, but it is.
+    echo ""
     echo "🎥 Downloading ffmpeg..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip
     echo "📤 Unpacking ffmpeg..."
     unzip -q /usr/local/bin/ffmpeg.zip -d /usr/local/bin/
     echo "🚦 Marking ffmpeg as executeable"
     chmod +x /usr/local/bin/ffmpeg
-    
+    echo ""
     echo "🎥 Downloading dependency ffprobe..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o /usr/local/bin/ffprobe.zip
     echo "📤 Unpacking ffprobe..."
     unzip -q /usr/local/bin/ffprobe.zip -d /usr/local/bin/
     echo "🚦 Marking as executeable"
     chmod +x /usr/local/bin/ffprobe
-    
+    echo ""
     echo "🎥 Downloading dependency ffplay..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/local/bin/ffplay.zip
     echo "📤 Unpacking ffplay..."
     unzip -q /usr/local/bin/ffplay.zip -d /usr/local/bin/
     echo "🚦 Marking ffplay as executeable"
     chmod +x /usr/local/bin/ffplay
-    
+    echo ""
     echo "🧼 Cleaning up..."
     rm /usr/local/bin/ffmpeg.zip
     rm /usr/local/bin/ffplay.zip
     rm /usr/local/bin/ffprobe.zip
+    echo ""
+    echo "✅ Installed ffmpeg!"
   fi
 fi
 if [ "$1" == "update" ]; then
