@@ -13,21 +13,21 @@ if [ "$1" == "install" ]; then
     echo "🎥 Downloading ffmpeg..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip
     echo "📤 Unpacking ffmpeg..."
-    unzip /usr/local/bin/ffmpeg.zip -q
+    unzip -q /usr/local/bin/ffmpeg.zip -d /usr/local/bin/
     echo "🚦 Marking ffmpeg as executeable"
     chmod +x /usr/local/bin/ffmpeg
     
     echo "🎥 Downloading dependency ffprobe..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o /usr/local/bin/ffprobe.zip
     echo "📤 Unpacking ffprobe..."
-    unzip /usr/local/bin/ffprobe.zip -q
+    unzip -q /usr/local/bin/ffprobe.zip -d /usr/local/bin/
     echo "🚦 Marking as executeable"
     chmod +x /usr/local/bin/ffprobe
     
     echo "🎥 Downloading dependency ffplay..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/local/bin/ffplay.zip
     echo "📤 Unpacking ffplay..."
-    unzip /usr/local/bin/ffplay.zip -q
+    unzip -q /usr/local/bin/ffplay.zip -d /usr/local/bin/
     echo "🚦 Marking ffplay as executeable"
     chmod +x /usr/local/bin/ffplay
     
@@ -70,7 +70,7 @@ if [ "$1" == "list" ]; then
 fi
 if [ $# -eq 0 ]; then
   echo ""
-  echo "🦊 FoxCMD v2.1.4"
+  echo "🦊 FoxCMD v2.1.4.1"
   sleep $del
   echo "===== 📄 Commands ======================================="
   sleep $del
