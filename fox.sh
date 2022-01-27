@@ -96,6 +96,8 @@ if [ $# -eq 0 ]; then
   sleep $del
   echo "🎚  dock        • Tweaks your dock            • <function or \"list\">"
   sleep $del
+  echo "🗑 clean        • Cleans your mac's cache     • <\"dc\" - requires sudo>"
+  sleep $del
   echo ""
   sleep $del
   echo "Command syntax: \"fox <command> <arguments>\" "
@@ -151,4 +153,50 @@ if [ "$1" == "dock" ]; then
     echo ""
   fi
 fi
-  
+if [ "$1" == "clean" ]; then
+    echo 🗑 Cleaning Caches
+    rm -rf ~/Library/Caches/*
+    echo 🗑 Cleaning logs
+    rm -rf ~/Library/logs/*
+    echo 🗑 Clearing caches in user folder
+    rm -rf ~/.zsh_history
+    rm -rf ~/.zsh_sessions
+    rm -rf ~/.gradle/caches
+    rm -rf ~/.npm
+    rm -rf ~/.dartServer
+    rm -rf ~/.pub-cache
+    if [ "$2" == "dc" ]; then
+      sudo rm -f -rf ~/.Trash/*
+      sudo rm -f -rf ~/Library/Containers/com.apple.mail/Data/Library/Logs/Mail/*
+    fi
+    if [ -d ~/Library/Application\ Support/minecraft ];then
+    	echo '⛏ Clearing Minecraft Cache and Log Files...'
+    	rm -rfv ~/Library/Application\ Support/minecraft/logs &>/dev/null
+    	rm -rfv ~/Library/Application\ Support/minecraft/crash-reports &>/dev/null
+    	rm -rfv ~/Library/Application\ Support/minecraft/webcache &>/dev/null
+    	rm -rfv ~/Library/Application\ Support/minecraft/webcache2 &>/dev/null
+    	rm -rfv ~/Library/Application\ Support/minecraft/crash-reports &>/dev/null
+    	rm -rfv ~/Library/Application\ Support/minecraft/*.log &>/dev/null
+	    rm -rfv ~/Library/Application\ Support/minecraft/launcher_cef_log.txt &>/dev/
+    	rm -rfv ~/Library/Application\ Support/minecraft/.mixin.out &>/dev/
+    fi
+    if [ -d ~/.lunarclient ]; then
+    	echo '🌘 Deleting Lunar Client logs and caches...'
+    	rm -rfv ~/.lunarclient/game-cache &>/dev/null
+    	rm -rfv ~/.lunarclient/launcher-cache &>/dev/null
+    	rm -rfv ~/.lunarclient/logs &>/dev/null
+	    rm -rfv ~/.lunarclient/offline/*/logs &>/dev/null
+	    rm -rfv ~/.lunarclient/offline/files/*/logs &   >/dev/null
+    fi
+    if [ -d /opt/homebrew ]; then
+    	echo '🍺 Updating Homebrew Recipes...'
+    	brew update &>/dev/null
+    	echo '🍺 Upgrading and removing outdated formulae...'
+    	brew upgrade &>/dev/null
+    	echo '🍺 Cleaning up Homebrew Cache...'
+    	brew cleanup -s &>/dev/null
+	    rm -rfv "$(brew --cache)"
+    	brew tap --repair &>/dev/null
+    fi
+    echo "✅ Cleaned your computer's cache!"
+fi
