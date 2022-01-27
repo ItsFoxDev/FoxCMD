@@ -1,4 +1,4 @@
-del=0.03
+del=0.02
 if [ "$1" == "install" ]; then
   if [ "$2" == "brew" ]; then
     echo "🍺 Installing homebrew..."
@@ -96,7 +96,7 @@ if [ $# -eq 0 ]; then
   sleep $del
   echo "🎚  dock        • Tweaks your dock            • <function or \"list\">"
   sleep $del
-  echo "🗑 clean        • Cleans your mac's cache     • <\"dc\" - requires sudo>"
+  echo "🗑  clean       • Cleans your mac's cache     • <\"dc\" - requires sudo>"
   sleep $del
   echo ""
   sleep $del
