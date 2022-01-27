@@ -11,30 +11,30 @@ if [ "$1" == "install" ]; then
   fi
   if [ "$2" == "ffmpeg" ]; then
     echo "🎥 Downloading ffmpeg..."
-    curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/opt/bin/ffmpeg.zip
+    curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip
     echo "📤 Unpacking ffmpeg..."
-    unzip /usr/opt/bin/ffmpeg.zip -q
+    unzip /usr/local/bin/ffmpeg.zip -q
     echo "🚦 Marking ffmpeg as executeable"
-    chmod +x /usr/opt/bin/ffmpeg
+    chmod +x /usr/local/bin/ffmpeg
     
     echo "🎥 Downloading dependency ffprobe..."
-    curl -fsSL "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o /usr/opt/bin/ffprobe.zip
+    curl -fsSL "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o /usr/local/bin/ffprobe.zip
     echo "📤 Unpacking ffprobe..."
-    unzip /usr/opt/bin/ffprobe.zip -q
+    unzip /usr/local/bin/ffprobe.zip -q
     echo "🚦 Marking as executeable"
-    chmod +x /usr/opt/bin/ffprobe
+    chmod +x /usr/local/bin/ffprobe
     
     echo "🎥 Downloading dependency ffplay..."
-    curl -fsSL "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/opt/bin/ffplay.zip
+    curl -fsSL "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/local/bin/ffplay.zip
     echo "📤 Unpacking ffplay..."
-    unzip /usr/opt/bin/ffplay.zip -q
+    unzip /usr/local/bin/ffplay.zip -q
     echo "🚦 Marking ffplay as executeable"
-    chmod +x /usr/opt/bin/ffplay
+    chmod +x /usr/local/bin/ffplay
     
     echo "🧼 Cleaning up..."
-    rm /usr/opt/bin/ffmpeg.zip
-    rm /usr/opt/bin/ffplay.zip
-    rm /usr/opt/bin/ffprobe.zip
+    rm /usr/local/bin/ffmpeg.zip
+    rm /usr/local/bin/ffplay.zip
+    rm /usr/local/bin/ffprobe.zip
   fi
 fi
 if [ "$1" == "update" ]; then
@@ -70,7 +70,7 @@ if [ "$1" == "list" ]; then
 fi
 if [ $# -eq 0 ]; then
   echo ""
-  echo "🦊 FoxCMD v2.1.3"
+  echo "🦊 FoxCMD v2.1.4"
   sleep $del
   echo "===== 📄 Commands ======================================="
   sleep $del
