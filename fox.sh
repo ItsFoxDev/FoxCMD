@@ -11,7 +11,8 @@ if [ "$1" == "install" ]; then
   fi
   if [ "$2" == "ffmpeg" ]; then
     echo ""
-    echo "ℹ️ Note: This may take a while. It may not seem like it is doing anything, but it is."
+    echo "ℹ️  Note: This may take a while."
+    echo "It may not seem like it is doing anything, but it is."
     echo ""
     echo "🎥 Downloading ffmpeg..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip
