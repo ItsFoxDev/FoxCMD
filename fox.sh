@@ -14,25 +14,25 @@ if [ "$1" == "install" ]; then
     echo "ℹ️  Note: This may take a while."
     echo "It may not seem like it is doing anything, but it is."
     echo ""
-    echo "🎥 Downloading ffmpeg..."
+    echo "📥 Downloading ffmpeg..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip
-    echo "📤 Unpacking ffmpeg..."
-    unzip -q /usr/local/bin/ffmpeg.zip -d /usr/local/bin/
-    echo "🚦 Marking ffmpeg as executeable"
+    echo "⚡️ Installing ffmpeg..."
+    unzip -o -q /usr/local/bin/ffmpeg.zip -d /usr/local/bin/
+    echo "🚦 Verifying..."
     chmod +x /usr/local/bin/ffmpeg
     echo ""
-    echo "🎥 Downloading dependency ffprobe..."
+    echo "📥 Downloading dependency ffprobe..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o /usr/local/bin/ffprobe.zip
-    echo "📤 Unpacking ffprobe..."
-    unzip -q /usr/local/bin/ffprobe.zip -d /usr/local/bin/
-    echo "🚦 Marking as executeable"
+    echo "⚡️ Unpacking ffprobe..."
+    unzip -o -q /usr/local/bin/ffprobe.zip -d /usr/local/bin/
+    echo "🚦 Verifying..."
     chmod +x /usr/local/bin/ffprobe
     echo ""
-    echo "🎥 Downloading dependency ffplay..."
+    echo "📥 Downloading dependency ffplay..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/local/bin/ffplay.zip
-    echo "📤 Unpacking ffplay..."
-    unzip -q /usr/local/bin/ffplay.zip -d /usr/local/bin/
-    echo "🚦 Marking ffplay as executeable"
+    echo "⚡️ Installing ffplay..."
+    unzip -o -q /usr/local/bin/ffplay.zip -d /usr/local/bin/
+    echo "🚦 Verifying..."
     chmod +x /usr/local/bin/ffplay
     echo ""
     echo "🧼 Cleaning up..."
