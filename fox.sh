@@ -97,7 +97,7 @@ if [ $# -eq 0 ]; then
   sleep $del
   echo ""
   sleep $del
-  echo "Command syntax: \"fox \<command\> \<arguments\>\""
+  echo "Command syntax: \"fox <command> <arguments>\" "
   sleep $del
   echo ""
   sleep $del
