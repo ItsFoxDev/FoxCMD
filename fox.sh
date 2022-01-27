@@ -1,4 +1,4 @@
-del=0.02
+del=0.01
 if [ "$1" == "install" ]; then
   if [ "$2" == "brew" ]; then
     echo "🍺 Installing homebrew..."
