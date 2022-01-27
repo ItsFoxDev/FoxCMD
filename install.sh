@@ -3,7 +3,7 @@ echo "ℹ️ This will install FoxCMD v2 to your computer."
 sleep 0.03
 echo "You may uninstall it at any time"
 sleep 0.03
-echo 
+echo ""
 sleep 0.03
 echo "The installer will only affect the following directory"
 sleep 0.03
