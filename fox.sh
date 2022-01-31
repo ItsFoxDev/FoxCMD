@@ -1,4 +1,36 @@
 del=0.01
+ver="2.2"
+if [ $# -eq 0 ]; then
+  echo ""
+  echo "🦊 FoxCMD v$ver"
+  sleep $del
+  echo ""
+  sleep $del
+  echo "===== 📄 Commands ======================================="
+  sleep $del
+  echo "⬇️  install <package>  • Installs a package"
+  sleep $del
+  echo "⬆️  update             • Updates FoxCMD" 
+  sleep $del
+  echo "📦  list               • Lists installable packages"
+  sleep $del
+  echo "👀  hdi <y/n>          • Hides icons on your desktop" 
+  sleep $del
+  echo "⭐️  starwars           • Watch ascii starwars"
+  sleep $del
+  echo "🪐  addspace           • Adds a spacer to your dock"
+  sleep $del
+  echo "🗑  clean              • Cleans your mac's cache•"
+  sleep $del
+  echo "❌  resetdock          • Resets your mac's dock"
+  sleep $del
+  echo ""
+  sleep $del
+  echo "Command syntax: \"fox <command> <arguments>\" "
+  sleep $del
+  echo ""
+  sleep $del
+fi
 if [ "$1" == "install" ]; then
   if [ "$2" == "brew" ]; then
     echo "🍺 Installing homebrew..."
@@ -49,10 +81,8 @@ if [ "$1" == "update" ]; then
   echo "⬇️  Downloading FoxCMD"
   sleep $del
   curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o $HOME/fox.sh
-  echo "➡️  Moving files into place"
-  sleep $del
   mv $HOME/fox.sh /usr/local/bin/fox
-  echo "🚦 Marking file as executeable"
+  echo "⚡️ Installing FoxCMD..."
   sleep $del
   chmod +x /usr/local/bin/fox
   echo "✅ FoxCMD v2 is has been successfully updated!"
@@ -74,37 +104,6 @@ if [ "$1" == "list" ]; then
   echo ""
   sleep $del
 fi
-if [ $# -eq 0 ]; then
-  echo ""
-  echo "🦊 FoxCMD v2.1.4.1"
-  sleep $del
-  echo "===== 📄 Commands ======================================="
-  sleep $del
-  echo "ℹ️  COMMAND     • DESCRIPTION                 • ARGUMENTS"
-  sleep $del
-  echo "---------------------------------------------------------"
-  sleep $del
-  echo "⬇️  install     • Installs a package          • <package>"
-  sleep $del
-  echo "⬆️  update      • Updates FoxCMD              • No arguments" 
-  sleep $del
-  echo "📦 list        • Lists installable packages  • No arguments"
-  sleep $del
-  echo "👀 hdi         • Hides icons on your desktop • <y/n>" 
-  sleep $del
-  echo "⭐️ starwars    • Watch ascii starwars        • No arguments"
-  sleep $del
-  echo "🎚  dock        • Tweaks your dock            • <function or \"list\">"
-  sleep $del
-  echo "🗑  clean       • Cleans your mac's cache     • <\"dc\" - requires sudo>"
-  sleep $del
-  echo ""
-  sleep $del
-  echo "Command syntax: \"fox <command> <arguments>\" "
-  sleep $del
-  echo ""
-  sleep $del
-fi
 if [ "$1" == "hdi" ]; then
   if [ "$2" == "y" ]; then
     defaults write com.apple.finder CreateDesktop false
@@ -116,61 +115,48 @@ if [ "$1" == "hdi" ]; then
     killall Finder
     echo "✅ Unhid desktop icons. To hide, run \"fox hdi y\"" 
   fi
+  if [ "$2" -eq 0 ]; then
+    echo "❌ Please use \"fox hdi y\" or \"fox hdi n\""
+  fi
 fi
 if [ "$1" == "starwars" ]; then
   echo "Loading starwars. To exit, press CTRL+C"
   sleep 1
   nc towel.blinkenlights.nl 23
 fi
-if [ "$1" == "dock" ]; then
-  if [ "$2" == "addspace" ]; then
+if [ "$1" == "addspace" ]; then
     defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
     killall Dock
     echo "✅ Added a spacer to your dock."
     echo "ℹ️ If it didn't work, you may have to run the command again."
-  fi
-  if [ "$2" == "reset" ]; then
-    read -p "Are you sure you want to reset your dock? y/n: " confirm
-    if [ "$confirm" == "y" ]; then
-      defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
-      killall Dock
-      echo "✅ Reset your dock to system defaults."
-    elif [ "$confirm" == "n" ]; then
-      echo "❌ Dock reset canceled."
-    else
-      echo "❌ Please enter either \"y\" or \"n\"."
-    fi
-  fi
-  if [ "$2" == "list" ]; then
-    echo ""
-    sleep $del
-    echo "==== 📄 DOCK COMMANDS ============"
-    sleep $del
-    echo "❌ Reset     • Resets your dock to system defaults"
-    sleep $del
-    echo "🪐 Addspace  • Adds a blank spacer to your dock"
-    sleep $del
-    echo ""
+fi
+if [ "$1" == "resetdock" ]; then
+  read -p "Are you sure you want to reset your dock? y/n: " confirm
+  if [ "$confirm" == "y" ]; then
+    defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
+    killall Dock
+    echo "✅ Reset your dock to system defaults."
+  elif [ "$confirm" == "n" ]; then
+    echo "❌ Dock reset canceled."
+  else
+    echo "❌ Please enter either \"y\" or \"n\"."
   fi
 fi
 if [ "$1" == "clean" ]; then
-    echo 🗑 Cleaning Caches
+    echo ""
+    echo "🗑 Cleaning Caches"
     rm -rf ~/Library/Caches/*
-    echo 🗑 Cleaning logs
+    echo "🗑 Cleaning logs"
     rm -rf ~/Library/logs/*
-    echo 🗑 Clearing caches in user folder
+    echo "🗑 Clearing caches in user folder"
     rm -rf ~/.zsh_history
     rm -rf ~/.zsh_sessions
     rm -rf ~/.gradle/caches
     rm -rf ~/.npm
     rm -rf ~/.dartServer
     rm -rf ~/.pub-cache
-    if [ "$2" == "dc" ]; then
-      sudo rm -f -rf ~/.Trash/*
-      sudo rm -f -rf ~/Library/Containers/com.apple.mail/Data/Library/Logs/Mail/*
-    fi
     if [ -d ~/Library/Application\ Support/minecraft ];then
-    	echo '⛏ Clearing Minecraft Cache and Log Files...'
+    	echo '⛏ Clearing Minecraft Caches and Logs...'
     	rm -rfv ~/Library/Application\ Support/minecraft/logs &>/dev/null
     	rm -rfv ~/Library/Application\ Support/minecraft/crash-reports &>/dev/null
     	rm -rfv ~/Library/Application\ Support/minecraft/webcache &>/dev/null
@@ -198,5 +184,7 @@ if [ "$1" == "clean" ]; then
 	    rm -rfv "$(brew --cache)"
     	brew tap --repair &>/dev/null
     fi
+    echo ""
     echo "✅ Cleaned your computer's cache!"
+    echo ""
 fi
