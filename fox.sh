@@ -20,11 +20,11 @@ if [ $# -eq 0 ]; then
   sleep $del
   echo "♻️  clean              • Cleans your mac's cache•"
   sleep $del
-  echo "🗑 resetdock          • Resets your mac's dock"
+  echo "🗑  resetdock          • Resets your mac's dock"
   sleep $del
   echo ""
   sleep $del
-  echo "⬆️  update             • Updates FoxCMD" 
+  echo "⬆️  update              • Updates FoxCMD" 
   sleep $del
   echo "❌ remove              • Removes FoxCMD from your computer"
   echo ""
