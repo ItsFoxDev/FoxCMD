@@ -1,7 +1,7 @@
 echo
-echo "ℹ️ This will install FoxCMD v2 to your computer."
+echo "ℹ️ This will install FoxCMD to your computer."
 sleep 0.03
-echo "You may uninstall it at any time"
+echo "You may uninstall it at any time."
 sleep 0.03
 echo ""
 sleep 0.03
@@ -19,11 +19,9 @@ if [ "$confirm" == "" ]; then
     echo "🔑 You may be asked to enter your password"
     sudo mkdir /usr/local/bin
   fi
-  echo "⬇️ Downloading FoxCMD v2..."
-  curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o $HOME/fox.sh
-  echo "➡️  Moving files into place"
-  mv $HOME/fox.sh /usr/local/bin/fox
-  echo "🚦  Marking file as executeable"
+  echo "⬇️  Downloading FoxCMD..."
+  curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o /usr/local/bin/fox
+  echo "⚡️ Installing FoxCMD..."
   chmod +x /usr/local/bin/fox
   echo "✅ FoxCMD v2 is successfully installed!"
   sleep 0.03
