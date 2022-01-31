@@ -88,6 +88,7 @@ if [ "$1" == "remove" ]; then
   else
     echo "❌ Please enter either \"y\" or \"n\"."
   fi
+fi
 if [ "$1" == "update" ]; then
   echo ""
   sleep $del
