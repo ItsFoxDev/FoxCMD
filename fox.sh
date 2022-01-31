@@ -10,20 +10,23 @@ if [ $# -eq 0 ]; then
   sleep $del
   echo "⬇️  install <package>  • Installs a package"
   sleep $del
+  echo "📦 list               • Lists installable packages"
+  sleep $del
+  echo "👀 hdi <y/n>          • Hides icons on your desktop" 
+  sleep $del
+  echo "⭐️ starwars           • Watch ascii starwars"
+  sleep $del
+  echo "🪐 addspace           • Adds a spacer to your dock"
+  sleep $del
+  echo "♻️  clean              • Cleans your mac's cache•"
+  sleep $del
+  echo "🗑 resetdock          • Resets your mac's dock"
+  sleep $del
+  echo ""
+  sleep $del
   echo "⬆️  update             • Updates FoxCMD" 
   sleep $del
-  echo "📦  list               • Lists installable packages"
-  sleep $del
-  echo "👀  hdi <y/n>          • Hides icons on your desktop" 
-  sleep $del
-  echo "⭐️  starwars           • Watch ascii starwars"
-  sleep $del
-  echo "🪐  addspace           • Adds a spacer to your dock"
-  sleep $del
-  echo "🗑  clean              • Cleans your mac's cache•"
-  sleep $del
-  echo "❌  resetdock          • Resets your mac's dock"
-  sleep $del
+  echo "❌ remove              • Removes FoxCMD from your computer"
   echo ""
   sleep $del
   echo "Command syntax: \"fox <command> <arguments>\" "
@@ -75,6 +78,16 @@ if [ "$1" == "install" ]; then
     echo "✅ Installed ffmpeg!"
   fi
 fi
+if [ "$1" == "remove" ]; then
+  read -p "Are you sure you want to uninstall FoxCMD? y/n: " confirm
+  if [ "$confirm" == "y" ]; then
+    rm /usr/local/bin/fox
+    echo "✅ Completely uninstalled FoxCMD from your computer."
+  elif [ "$confirm" == "n" ]; then
+    echo "❌ Uninstall canceled."
+  else
+    echo "❌ Please enter either \"y\" or \"n\"."
+  fi
 if [ "$1" == "update" ]; then
   echo ""
   sleep $del
