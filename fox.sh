@@ -24,9 +24,9 @@ if [ $# -eq 0 ]; then
   sleep $del
   echo ""
   sleep $del
-  echo "⬆️  update              • Updates FoxCMD" 
+  echo "⬆️  update             • Updates FoxCMD" 
   sleep $del
-  echo "❌ remove              • Removes FoxCMD from your computer"
+  echo "❌ remove             • Removes FoxCMD from your computer"
   echo ""
   sleep $del
   echo "Command syntax: \"fox <command> <arguments>\" "
