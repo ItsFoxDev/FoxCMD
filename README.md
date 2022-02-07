@@ -18,7 +18,7 @@ The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-L
 👀 hdi <y/n>          • Hides icons on your desktop
 ⭐️ starwars           • Watch ascii starwars
 🪐 addspace           • Adds a spacer to your dock
-♻️  clean              • Cleans your mac's cache•
+♻️ clean              • Cleans your mac's cache•
 🗑 resetdock          • Resets your mac's dock
 
 ⬆️  update             • Updates FoxCMD
