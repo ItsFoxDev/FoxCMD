@@ -189,6 +189,15 @@ if [ "$1" == "clean" ]; then
 	    rm -rfv ~/.lunarclient/offline/*/logs &>/dev/null
 	    rm -rfv ~/.lunarclient/offline/files/*/logs &   >/dev/null
     fi
+    if [ -d ~/Library/Application\ Support/Steam/ ]; then
+	echo "⚙️ Cleaning Steam caches"
+	rm -rfv ~/Library/Application\ Support/Steam/appcache &>/dev/null
+	rm -rfv ~/Library/Application\ Support/Steam/depotcache &>/dev/null
+	rm -rfv ~/Library/Application\ Support/Steam/logs &>/dev/null
+	rm -rfv ~/Library/Application\ Support/Steam/steamapps/shadercache &>/dev/null
+	rm -rfv ~/Library/Application\ Support/Steam/steamapps/temp &>/dev/null
+	rm -rfv ~/Library/Application\ Support/Steam/steamapps/download &>/dev/null
+    fi
     if [ -d /opt/homebrew ]; then
     	echo '🍺 Updating Homebrew Recipes...'
     	brew update &>/dev/null
