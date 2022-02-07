@@ -16,7 +16,7 @@ if [ $# -eq 0 ]; then
   sleep $del
   echo "⭐️ starwars           • Watch ascii starwars"
   sleep $del
-  echo "🪐 addspace           • Adds a spacer to your dock"
+  echo "🪐 addspace [s]       • Adds a spacer to your dock"
   sleep $del
   echo "♻️  clean              • Cleans your mac's cache•"
   sleep $del
@@ -30,6 +30,8 @@ if [ $# -eq 0 ]; then
   echo ""
   sleep $del
   echo "Command syntax: \"fox <command> <arguments>\" "
+  sleep $del
+  echo "Arguments: [optional] <required>"
   sleep $del
   echo ""
   sleep $del
@@ -140,10 +142,15 @@ if [ "$1" == "starwars" ]; then
   nc towel.blinkenlights.nl 23
 fi
 if [ "$1" == "addspace" ]; then
+  if [ "$2" == "s" ]; then
+    defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
+    killall Dock
+  else
     defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
     killall Dock
-    echo "✅ Added a spacer to your dock."
-    echo "ℹ️ If it didn't work, you may have to run the command again."
+  fi
+  echo "✅ Added a spacer to your dock."
+  echo "ℹ️ If it didn't work, you may have to run the command again."
 fi
 if [ "$1" == "resetdock" ]; then
   read -p "Are you sure you want to reset your dock? y/n: " confirm
