@@ -42,6 +42,7 @@ if [ "$1" == "install" ]; then
   if [ "$2" == "spicetify" ]; then
     echo "🌶 Installing spicetify..."
     curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh
+    spicetify backup
     curl -fsSL https://raw.githubusercontent.com/CharlieS1103/spicetify-marketplace/main/install.sh | sh
   fi
   if [ "$2" == "ffmpeg" ]; then
