@@ -80,6 +80,10 @@ if [ "$1" == "install" ]; then
     echo ""
     echo "✅ Installed ffmpeg!"
   fi
+  if [ "$2" == "npm" ] || ["$2" == "nodejs" ]; then
+    echo "⬇️ Running NodeJS installer..."
+    curl -qL https://www.npmjs.com/install.sh | sh
+  fi
 fi
 if [ "$1" == "remove" ]; then
   read -p "Are you sure you want to uninstall FoxCMD? y/n: " confirm
@@ -117,6 +121,8 @@ if [ "$1" == "list" ]; then
   echo "🌶  spicetify   • Themes for Spotify"
   sleep $del
   echo "🎥 ffmpeg      • Video encoder"
+  sleep $del
+  echo "📦 nodejs      • Javascript package manager"
   sleep $del
   echo ""
   sleep $del
