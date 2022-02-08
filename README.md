@@ -11,7 +11,7 @@ The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-L
 
 # 📄 Commands
 ```
-ℹ️ COMMAND     • DESCRIPTION                 • ARGUMENTS
+ℹ️ COMMAND            • DESCRIPTION
 --------------------------------------------------------
 ⬇️ install <package>  • Installs a package
 📦 list               • Lists installable packages
@@ -21,7 +21,7 @@ The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-L
 ♻️ clean              • Cleans your mac's cache•
 🗑 resetdock          • Resets your mac's dock
 
-⬆️  update             • Updates FoxCMD
+⬆️ update             • Updates FoxCMD
 ❌ remove             • Removes FoxCMD from your computer
 Command syntax: "fox <command> <arguments>"
 
