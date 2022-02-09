@@ -22,6 +22,8 @@ if [ $# -eq 0 ]; then
   sleep $del
   echo "🗑  resetdock          • Resets your mac's dock"
   sleep $del
+  echo "🤖 aiperson <count>   • Bulk fetches thispersondoesnotexist.com"
+  sleep $del
   echo ""
   sleep $del
   echo "⬆️  update             • Updates FoxCMD" 
@@ -224,4 +226,37 @@ if [ "$1" == "clean" ]; then
     echo ""
     echo "✅ Cleaned your computer's cache!"
     echo ""
+fi
+if [ "$1" == "aiperson" ]; then
+  if [ $2 -eq 0 ]; then
+    echo "⚠️ Please enter a valid number"
+    sleep $del
+    echo "Syntax: \"fox aiperson <number of people>\""
+  echo ""
+  echo "🏁 Setting things up..."
+  echo ""
+  mkdir ~/people
+  sleep 0.1
+  echo "🌐 Connecting to thispersondoesnotexist.com"
+  sleep 0.1
+  echo ""
+  count=1
+  for i in $(seq $2)
+  do
+    echo "⬇️ Downloading image $count/$2"
+    curl -fsSL "https://thispersondoesnotexist.com/image" -o ~/people/$count.jpg
+    sleep 0.5
+    count=$((count+1))
+  done
+  echo ""
+  echo "📂 Zipping files to desktop..."
+  cd ~/people
+  zip -q ~/Desktop/people.zip ./*
+  sleep 0.3
+  echo "🧼 Cleaning up..."
+  cd
+  rm -r ~/people
+  echo ""
+  echo "✅ Saved $count people to your desktop!"
+  echo ""
 fi
