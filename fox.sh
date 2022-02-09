@@ -258,6 +258,6 @@ if [ "$1" == "aiperson" ]; then
   cd
   rm -r ~/people
   echo ""
-  echo "✅ Saved $count people to your desktop!"
+  echo "✅ Saved $2 people to your desktop!"
   echo ""
 fi
