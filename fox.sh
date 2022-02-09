@@ -232,6 +232,7 @@ if [ "$1" == "aiperson" ]; then
     echo "⚠️ Please enter a valid number"
     sleep $del
     echo "Syntax: \"fox aiperson <number of people>\""
+  fi
   echo ""
   echo "🏁 Setting things up..."
   echo ""
