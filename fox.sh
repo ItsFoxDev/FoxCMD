@@ -131,13 +131,11 @@ if [ "$1" == "list" ]; then
 fi
 if [ "$1" == "hdi" ]; then
   if [ "$2" == "y" ]; then
-    defaults write com.apple.finder CreateDesktop false
-    killall Finder
+    chflags hidden ~/Desktop/*
     echo "✅ Hid desktop icons. To unhide, run \"fox hdi n\"" 
   fi
   if [ "$2" == "n" ]; then
-    defaults write com.apple.finder CreateDesktop true
-    killall Finder
+    chflags nohidden ~/Desktop/*
     echo "✅ Unhid desktop icons. To hide, run \"fox hdi y\"" 
   fi
   if [ "$2" -eq 0 ]; then
