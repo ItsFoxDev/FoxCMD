@@ -1,6 +1,6 @@
 del=0.01
 ver="2.2"
-if [ $# -eq 0 ]; then
+if [ -z $# ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
   sleep $del
@@ -138,7 +138,7 @@ if [ "$1" == "hdi" ]; then
     chflags nohidden ~/Desktop/*
     echo "✅ Unhid desktop icons. To hide, run \"fox hdi y\"" 
   fi
-  if [ "$2" -eq 0 ]; then
+  if [ -z "$2" ]; then
     echo "❌ Please use \"fox hdi y\" or \"fox hdi n\""
   fi
 fi
@@ -156,7 +156,7 @@ if [ "$1" == "addspace" ]; then
     killall Dock
   fi
   echo "✅ Added a spacer to your dock."
-  echo "ℹ️ If it didn't work, you may have to run the command again."
+  echo "ℹ️  If it didn't work, you may have to run the command again."
 fi
 if [ "$1" == "resetdock" ]; then
   read -p "Are you sure you want to reset your dock? y/n: " confirm
