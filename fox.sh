@@ -1,6 +1,6 @@
 del=0.01
 ver="2.2"
-if [ -z $# ]; then
+if [ -z "$@" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
   sleep $del
