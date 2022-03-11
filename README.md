@@ -14,7 +14,7 @@ The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-L
 ===== 📄 Commands =======================================
 ⬇️ install <package>  • Installs a package
 📦 list               • Lists installable packages
-👀 hdi <y/n>          • Hides icons on your desktop
+👀 hdi <y/n> [o]      • Hides icons on your desktop
 ⭐️ starwars           • Watch ascii starwars
 🪐 addspace [s]       • Adds a spacer to your dock
 ♻️ clean              • Cleans your mac's cache•
@@ -23,7 +23,10 @@ The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-L
 
 ⬆️ update             • Updates FoxCMD
 ❌ remove             • Removes FoxCMD from your computer
-Command syntax: "fox <command> <arguments>"
+
+Command syntax: "fox <command> <arguments>" 
+Arguments: [optional] <required>
+
 
 🆕 New commands coming soon!
 ```
