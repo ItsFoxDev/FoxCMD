@@ -12,7 +12,7 @@ if [ -z "$1" ]; then
   sleep $del
   echo "📦 list               • Lists installable packages"
   sleep $del
-  echo "👀 hdi <y/n>          • Hides icons on your desktop" 
+  echo "👀 hdi <y/n> [o]      • Hides icons on your desktop" 
   sleep $del
   echo "⭐️ starwars           • Watch ascii starwars"
   sleep $del
@@ -131,11 +131,16 @@ if [ "$1" == "list" ]; then
 fi
 if [ "$1" == "hdi" ]; then
   if [ "$2" == "y" ]; then
+    if [ "$3" == "o" ]; then
+      defaults write com.apple.finder CreateDesktop false
+      killall Finder
+    fi
     chflags hidden ~/Desktop/*
     echo "✅ Hid desktop icons. To unhide, run \"fox hdi n\"" 
   fi
   if [ "$2" == "n" ]; then
     chflags nohidden ~/Desktop/*
+    defaults write com.apple.finder CreateDesktop true
     echo "✅ Unhid desktop icons. To hide, run \"fox hdi y\"" 
   fi
   if [ -z "$2" ]; then
