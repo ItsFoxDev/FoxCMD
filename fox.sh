@@ -134,8 +134,9 @@ if [ "$1" == "hdi" ]; then
     if [ "$3" == "o" ]; then
       defaults write com.apple.finder CreateDesktop false
       killall Finder
+    else
+      chflags hidden ~/Desktop/*
     fi
-    chflags hidden ~/Desktop/*
     echo "✅ Hid desktop icons. To unhide, run \"fox hdi n\"" 
   fi
   if [ "$2" == "n" ]; then
