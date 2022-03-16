@@ -1,5 +1,5 @@
 echo
-echo "ℹ️ This will install FoxCMD to your computer."
+echo "ℹ️  This will install FoxCMD to your computer."
 sleep 0.03
 echo "You may uninstall it at any time."
 sleep 0.03
