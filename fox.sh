@@ -167,7 +167,7 @@ fi
 if [ "$1" == "resetdock" ]; then
   read -p "Are you sure you want to reset your dock? y/n: " confirm
   if [ "$confirm" == "y" ]; then
-    defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
+    defaults delete com.apple.dock
     killall Dock
     echo "✅ Reset your dock to system defaults."
   elif [ "$confirm" == "n" ]; then
