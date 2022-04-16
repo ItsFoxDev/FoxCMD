@@ -273,6 +273,8 @@ if [ "$1" == "tweak" ]; then
     sleep $del
     echo "🗂  openline [n]      • Adds a divider between open apps"
     sleep $del
+    echo "💨 suck [n]          • Enables the hidden suck animation"
+    sleep $del
     echo ""
     sleep $del
     echo "Command syntax: \"fox tweak <tweak name>\" "
@@ -293,6 +295,17 @@ if [ "$1" == "tweak" ]; then
       defaults write com.apple.dock show-recent-count -int 0;
       killall Dock
       echo "✅ Enabled the openline tweak."
+    fi
+  fi
+  if [ "$2" == "suck" ]; then
+    if [ "$3" == "n" ]; then
+      defaults write com.apple.dock mineffect genie
+      killall Dock
+      echo "✅ Disabled the suck animation."
+    else
+      defaults write com.apple.dock mineffect suck
+      killall Dock
+      echo "✅ Enabled the suck animation."
     fi
   fi
 fi
