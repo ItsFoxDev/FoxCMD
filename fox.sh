@@ -24,6 +24,8 @@ if [ -z "$1" ]; then
   sleep $del
   echo "🤖 aiperson <count>   • Bulk fetches thispersondoesnotexist.com"
   sleep $del
+  echo "🔧 tweak <list/tweak> • Simple tweaks for your mac"
+  sleep $del
   echo ""
   sleep $del
   echo "⬆️  update             • Updates FoxCMD" 
@@ -265,3 +267,28 @@ if [ "$1" == "aiperson" ]; then
   echo "✅ Saved $2 people to your desktop!"
   echo ""
 fi
+if [ "$1" == "tweak" ]; then
+  if [ "$2" == "list" ]; then
+    echo "===== 🔧 Tweak list ====================================="
+    sleep $del
+    echo "🗂  openline [n]      • Adds a divider between open apps"
+    sleep $del
+    echo ""
+    sleep $del
+    echo "Command syntax: \"fox tweak <tweak name>\" "
+    sleep $del
+    echo "ℹ️ Add \"n\" to the end of the command to disable the tweak."
+    sleep $del
+    echo ""
+    sleep $del
+  fi
+  if [ "$2" == "openline" ]
+    if [ "$3" == "n" ]; then
+      defaults write com.apple.dock show-recents -bool true;
+      defaults write com.apple.dock show-recent-count -int 3;
+      killall Dock
+    else
+    defaults write com.apple.dock show-recents -bool true;
+    defaults write com.apple.dock show-recent-count -int 10;
+    killall Dock
+  fi
