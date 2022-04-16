@@ -18,7 +18,7 @@ if [ -z "$1" ]; then
   sleep $del
   echo "🪐 addspace [s]       • Adds a spacer to your dock"
   sleep $del
-  echo "♻️  clean              • Cleans your mac's cache•"
+  echo "🫧  clean              • Cleans your mac's cache•"
   sleep $del
   echo "🗑  resetdock          • Resets your mac's dock"
   sleep $del
@@ -58,21 +58,21 @@ if [ "$1" == "install" ]; then
     echo ""
     echo "📥 Downloading ffmpeg..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip
-    echo "⚡️ Installing ffmpeg..."
+    echo "📥 Installing ffmpeg..."
     unzip -o -q /usr/local/bin/ffmpeg.zip -d /usr/local/bin/
     echo "🚦 Verifying..."
     chmod +x /usr/local/bin/ffmpeg
     echo ""
     echo "📥 Downloading dependency ffprobe..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o /usr/local/bin/ffprobe.zip
-    echo "⚡️ Installing ffprobe..."
+    echo "📥 Installing ffprobe..."
     unzip -o -q /usr/local/bin/ffprobe.zip -d /usr/local/bin/
     echo "🚦 Verifying..."
     chmod +x /usr/local/bin/ffprobe
     echo ""
     echo "📥 Downloading dependency ffplay..."
     curl -fsSL "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/local/bin/ffplay.zip
-    echo "⚡️ Installing ffplay..."
+    echo "📥 Installing ffplay..."
     unzip -o -q /usr/local/bin/ffplay.zip -d /usr/local/bin/
     echo "🚦 Verifying..."
     chmod +x /usr/local/bin/ffplay
@@ -107,7 +107,7 @@ if [ "$1" == "update" ]; then
   sleep $del
   curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o $HOME/fox.sh
   mv $HOME/fox.sh /usr/local/bin/fox
-  echo "⚡️ Installing FoxCMD..."
+  echo "📥 Installing FoxCMD..."
   sleep $del
   chmod +x /usr/local/bin/fox
   echo "✅ FoxCMD v2 is has been successfully updated!"
