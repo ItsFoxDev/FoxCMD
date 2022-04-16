@@ -287,10 +287,12 @@ if [ "$1" == "tweak" ]; then
       defaults write com.apple.dock show-recents -bool true;
       defaults write com.apple.dock show-recent-count -int 3;
       killall Dock
+      echo "✅ Disabled the openline tweak."
     else
       defaults write com.apple.dock show-recents -bool true;
       defaults write com.apple.dock show-recent-count -int 10;
       killall Dock
+      echo "✅ Enabled the openline tweak."
     fi
   fi
 fi
