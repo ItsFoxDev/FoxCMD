@@ -282,7 +282,7 @@ if [ "$1" == "tweak" ]; then
     echo ""
     sleep $del
   fi
-  if [ "$2" == "openline" ]
+  if [ "$2" == "openline" ]; then
     if [ "$3" == "n" ]; then
       defaults write com.apple.dock show-recents -bool true;
       defaults write com.apple.dock show-recent-count -int 3;
