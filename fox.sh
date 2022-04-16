@@ -292,3 +292,4 @@ if [ "$1" == "tweak" ]; then
     defaults write com.apple.dock show-recent-count -int 10;
     killall Dock
   fi
+fi
