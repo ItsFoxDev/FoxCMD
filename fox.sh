@@ -46,43 +46,63 @@ if [ "$1" == "install" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
   if [ "$2" == "spicetify" ]; then
-    echo "🌶 Installing spicetify..."
+    if [ "$3" != "-s" ]
+      echo "🌶 Installing spicetify..."
+    fi
     curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh
     spicetify backup
     curl -fsSL https://raw.githubusercontent.com/CharlieS1103/spicetify-marketplace/main/install.sh | sh
   fi
   if [ "$2" == "ffmpeg" ]; then
     echo ""
-    echo "ℹ️  Note: This may take a while."
-    echo "It may not seem like it is doing anything, but it is."
-    echo ""
-    echo "📥 Downloading ffmpeg..."
-    curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip
-    echo "📥 Installing ffmpeg..."
-    unzip -o -q /usr/local/bin/ffmpeg.zip -d /usr/local/bin/
-    echo "🚦 Verifying..."
-    chmod +x /usr/local/bin/ffmpeg
-    echo ""
-    echo "📥 Downloading dependency ffprobe..."
-    curl -fsSL "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o /usr/local/bin/ffprobe.zip
-    echo "📥 Installing ffprobe..."
-    unzip -o -q /usr/local/bin/ffprobe.zip -d /usr/local/bin/
-    echo "🚦 Verifying..."
-    chmod +x /usr/local/bin/ffprobe
-    echo ""
-    echo "📥 Downloading dependency ffplay..."
-    curl -fsSL "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/local/bin/ffplay.zip
-    echo "📥 Installing ffplay..."
-    unzip -o -q /usr/local/bin/ffplay.zip -d /usr/local/bin/
-    echo "🚦 Verifying..."
-    chmod +x /usr/local/bin/ffplay
-    echo ""
-    echo "🧼 Cleaning up..."
-    rm /usr/local/bin/ffmpeg.zip
-    rm /usr/local/bin/ffplay.zip
-    rm /usr/local/bin/ffprobe.zip
-    echo ""
-    echo "✅ Installed ffmpeg!"
+    if [ "$3" == "-c" ]
+      echo "📥 Downloading ffmpeg..."
+      curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip
+      unzip -o -q /usr/local/bin/ffmpeg.zip -d /usr/local/bin/
+      chmod +x /usr/local/bin/ffmpeg
+      echo "📥 Downloading ffprobe..."
+      curl -fsSL "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o /usr/local/bin/ffprobe.zip
+      unzip -o -q /usr/local/bin/ffprobe.zip -d /usr/local/bin/
+      chmod +x /usr/local/bin/ffprobe
+      echo "📥 Downloading ffplay..."
+      curl "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/local/bin/ffplay.zip -#
+      unzip -o -q /usr/local/bin/ffplay.zip -d /usr/local/bin/
+      chmod +x /usr/local/bin/ffplay
+      rm /usr/local/bin/ffmpeg.zip
+      rm /usr/local/bin/ffplay.zip
+      rm /usr/local/bin/ffprobe.zip
+    else
+      echo "ℹ️  Note: This may take a while."
+      echo "It may not seem like it is doing anything, but it is."
+      echo ""
+      echo "📥 Downloading ffmpeg..."
+      curl "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip -#
+      echo "📥 Installing ffmpeg..."
+      unzip -o -q /usr/local/bin/ffmpeg.zip -d /usr/local/bin/
+      echo "🚦 Verifying..."
+      chmod +x /usr/local/bin/ffmpeg
+      echo ""
+      echo "📥 Downloading dependency ffprobe..."
+      curl "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o /usr/local/bin/ffprobe.zip -#
+      echo "📥 Installing ffprobe..."
+      unzip -o -q /usr/local/bin/ffprobe.zip -d /usr/local/bin/
+      echo "🚦 Verifying..."
+      chmod +x /usr/local/bin/ffprobe
+      echo ""
+      echo "📥 Downloading dependency ffplay..."
+      curl "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/local/bin/ffplay.zip -#
+      echo "📥 Installing ffplay..."
+      unzip -o -q /usr/local/bin/ffplay.zip -d /usr/local/bin/
+      echo "🚦 Verifying..."
+      chmod +x /usr/local/bin/ffplay
+      echo ""
+      echo "🧼 Cleaning up..."
+      rm /usr/local/bin/ffmpeg.zip
+      rm /usr/local/bin/ffplay.zip
+      rm /usr/local/bin/ffprobe.zip
+      echo ""
+      echo "✅ Installed ffmpeg!"
+    fi
   fi
   if [ "$2" == "npm" ] || ["$2" == "nodejs" ]; then
     echo "⬇️ Running NodeJS installer..."
