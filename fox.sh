@@ -1,5 +1,5 @@
 del=0.01
-ver="3.1.2"
+ver="3.2"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -8,23 +8,23 @@ if [ -z "$1" ]; then
   sleep $del
   echo "===== 📄 Commands ======================================="
   sleep $del
-  echo "⬇️  install <package>  • Installs a package"
+  echo "⬇️  install <package> [-c] • Installs a package"
   sleep $del
-  echo "📦 list               • Lists installable packages"
+  echo "📦 list                   • Lists installable packages"
   sleep $del
-  echo "👀 hdi <y/n> [o]      • Hides icons on your desktop" 
+  echo "👀 hdi <y/n> [o]          • Hides icons on your desktop" 
   sleep $del
-  echo "⭐️ starwars           • Watch ascii starwars"
+  echo "⭐️ starwars               • Watch ascii starwars"
   sleep $del
-  echo "🪐 addspace [s]       • Adds a spacer to your dock"
+  echo "🪐 addspace [s]           • Adds a spacer to your dock"
   sleep $del
-  echo "🫧  clean              • Cleans your mac's cache•"
+  echo "🫧  clean                  • Cleans your mac's cache•"
   sleep $del
-  echo "🗑  resetdock          • Resets your mac's dock"
+  echo "🗑  resetdock              • Resets your mac's dock"
   sleep $del
-  echo "🤖 aiperson <count>   • Bulk fetches thispersondoesnotexist.com"
+  echo "🤖 aiperson <count>       • Bulk fetches thispersondoesnotexist.com"
   sleep $del
-  echo "🔧 tweak <list/tweak> • Simple tweaks for your mac"
+  echo "🔧 tweak <list/tweak>     • Simple tweaks for your mac"
   sleep $del
   echo ""
   sleep $del
