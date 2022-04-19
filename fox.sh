@@ -42,8 +42,12 @@ if [ -z "$1" ]; then
 fi
 if [ "$1" == "install" ]; then
   if [ "$2" == "brew" ]; then
-    echo "🍺 Installing homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    if [ "$3" == "-c" ]; then
+      NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    else
+      echo "🍺 Installing homebrew..."
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
   fi
   if [ "$2" == "spicetify" ]; then
     if [ "$3" != "-s" ]
