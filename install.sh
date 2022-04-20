@@ -7,7 +7,7 @@ echo ""
 sleep 0.01
 echo "The installer will only affect the following directories"
 sleep 0.01
-echo "➡️  /usr/local/bin/fox"
+echo "➡️  /opt/foxcmd/"
 sleep 0.01
 read -p "Press enter to continue or any other key to abort: " confirm
 if [ "$confirm" == "" ]; then
@@ -15,15 +15,16 @@ if [ "$confirm" == "" ]; then
   sleep 0.03
   echo "🦊 Starting FoxCMD v2 installation..."
   sleep 0.3
-  if [ ! -d "/usr/local/bin" ]; then 
+  if [ ! -d "/opt/foxcmd" ]; then 
     echo "🔑 You may be asked to enter your password"
-    sudo mkdir /usr/local/bin
+    sudo mkdir /opt/foxcmd
+    export PATH=$PATH:/opt/fox
   fi
   echo "⬇️  Downloading FoxCMD..."
-  curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o /usr/local/bin/fox
+  curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o /opt/foxcmd/fox
   echo "📥 Installing FoxCMD..."
-  chmod +x /usr/local/bin/fox
-  echo "✅ FoxCMD v2 is successfully installed!"
+  chmod +x /opt/foxcmd/fox
+  echo "✅ FoxCMD is successfully installed!"
   sleep 0.03
   echo "🏁 To run FoxCMD, run \"fox\""
 else
