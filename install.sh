@@ -1,14 +1,14 @@
 echo
 echo "ℹ️  This will install FoxCMD to your computer."
-sleep 0.03
+sleep 0.01
 echo "You may uninstall it at any time."
-sleep 0.03
+sleep 0.01
 echo ""
-sleep 0.03
-echo "The installer will only affect the following directory"
-sleep 0.03
+sleep 0.01
+echo "The installer will only affect the following directories"
+sleep 0.01
 echo "➡️  /usr/local/bin/fox"
-sleep 0.03
+sleep 0.01
 read -p "Press enter to continue or any other key to abort: " confirm
 if [ "$confirm" == "" ]; then
   echo
@@ -21,11 +21,11 @@ if [ "$confirm" == "" ]; then
   fi
   echo "⬇️  Downloading FoxCMD..."
   curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o /usr/local/bin/fox
-  echo "⚡️ Installing FoxCMD..."
+  echo "📥 Installing FoxCMD..."
   chmod +x /usr/local/bin/fox
   echo "✅ FoxCMD v2 is successfully installed!"
   sleep 0.03
-  echo "🏁 To run FoxCMD v2, run \"fox\""
+  echo "🏁 To run FoxCMD, run \"fox\""
 else
   echo "❌ Install was cancelled."
 fi
