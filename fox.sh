@@ -50,7 +50,7 @@ if [ "$1" == "install" ]; then
     fi
   fi
   if [ "$2" == "spicetify" ]; then
-    if [ "$3" != "-s" ]
+    if [ "$3" != "-s" ]; then
       echo "🌶 Installing spicetify..."
     fi
     curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh
