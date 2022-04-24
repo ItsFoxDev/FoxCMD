@@ -1,5 +1,5 @@
 del=0.01
-ver="3.2"
+ver="3.2.1"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -59,7 +59,7 @@ if [ "$1" == "install" ]; then
   fi
   if [ "$2" == "ffmpeg" ]; then
     echo ""
-    if [ "$3" == "-c" ]
+    if [ "$3" == "-c" ]; then
       echo "📥 Downloading ffmpeg..."
       curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip
       unzip -o -q /usr/local/bin/ffmpeg.zip -d /usr/local/bin/
