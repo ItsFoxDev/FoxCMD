@@ -1,5 +1,5 @@
 del=0.01
-ver="3.2.1"
+ver="3.3"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -56,6 +56,39 @@ if [ "$1" == "install" ]; then
     curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh
     spicetify backup
     curl -fsSL https://raw.githubusercontent.com/CharlieS1103/spicetify-marketplace/main/install.sh | sh
+  fi
+  if [ "$2" == "youtube-dl" ]; then
+    if [ "$3" == "-c" ]; then
+      curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+      chmod a+rx /usr/local/bin/youtube-dl
+    else
+      echo ""
+      echo "⬇️ Downloading youtube-dl"
+      curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+      echo "📥 Installing youtube-dl"
+      sudo chmod a+rx /usr/local/bin/youtube-dl
+      echo ""
+      echo "✅ Installed youtube-dl"
+      echo ""
+    fi
+  fi
+  if [ "$2" == "python" ]; then
+    if [ "$3" == "-c" ]; then
+      curl -L https://www.python.org/ftp/python/3.10.4/python-3.10.4-macos11.pkg -o ~/python.pkg
+      sudo installer -pkg '~/python.pkg' -target /
+      rm "~/python.pkg"
+    else
+      echo ""
+      echo "⬇️ Downloading Python"
+      curl -L https://www.python.org/ftp/python/3.10.4/python-3.10.4-macos11.pkg -o ~/python.pkg
+      echo "📥 Installing Python"
+      sudo installer -pkg '~/python.pkg' -target /
+      echo "🫧 Cleaning up"
+      rm "~/python.pkg"
+      echo ""
+      echo "✅ Installed Python!"
+      echo ""
+    fi
   fi
   if [ "$2" == "ffmpeg" ]; then
     echo ""
@@ -151,6 +184,10 @@ if [ "$1" == "list" ]; then
   echo "🎥 ffmpeg      • Video encoder"
   sleep $del
   echo "📦 nodejs      • Javascript package manager"
+  sleep $del
+  echo "⬇️ youtube-dl  • Youtube downloader"
+  sleep $del
+  echo "🐍 python      • Popular coding language"
   sleep $del
   echo ""
   sleep $del
