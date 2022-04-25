@@ -1,5 +1,5 @@
 del=0.01
-ver="3.3.2"
+ver="3.3.3"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
