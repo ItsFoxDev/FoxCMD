@@ -58,6 +58,20 @@ if [ "$1" == "install" ]; then
     curl -fsSL https://raw.githubusercontent.com/CharlieS1103/spicetify-marketplace/main/install.sh | sh
   fi
   if [ "$2" == "youtube-dl" ]; then
+    if [ ! -e "/usr/local/bin/python" ]; then
+      if [ ! -e "/usr/bin/python3" ]; then
+        echo "⚠️ Python is required to install youtube-dl."
+        sleep $del
+        echo "🔧 Installing python now..."
+        fox install python -s
+      fi
+    echo "🔗 Creating python symlink..."
+    sleep $del
+    echo "🔑 You may need to enter your password."
+    sleep $del
+    sudo ln -s /usr/bin/python3 /usr/local/bin/python
+    fi
+    
     if [ "$3" == "-s" ]; then
       curl -L -s https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
       chmod a+rx /usr/local/bin/youtube-dl
@@ -68,7 +82,9 @@ if [ "$1" == "install" ]; then
       echo "📥 Installing youtube-dl"
       sudo chmod a+rx /usr/local/bin/youtube-dl
       echo ""
+      sleep $del
       echo "✅ Installed youtube-dl"
+      sleep $del
       echo ""
     fi
   fi
@@ -77,6 +93,8 @@ if [ "$1" == "install" ]; then
       curl -s -L https://www.python.org/ftp/python/3.10.4/python-3.10.4-macos11.pkg -o ~/python.pkg
       sudo installer -pkg '~/python.pkg' -target /
       rm "~/python.pkg"
+      sudo ln -s /usr/bin/python3 /usr/local/bin/python
+      
     else
       echo ""
       echo "⬇️ Downloading Python"
@@ -85,8 +103,15 @@ if [ "$1" == "install" ]; then
       sudo installer -pkg '~/python.pkg' -target /
       echo "🫧 Cleaning up"
       rm "~/python.pkg"
+      echo "🔗 Creating python symlink..."
+      sleep $del
+      echo "🔑 You may need to enter your password."
+      sleep $del
+      sudo ln -s /usr/bin/python3 /usr/local/bin/python
       echo ""
+      sleep $del
       echo "✅ Installed Python!"
+      sleep $del
       echo ""
     fi
   fi
@@ -102,7 +127,7 @@ if [ "$1" == "install" ]; then
       unzip -o -q /usr/local/bin/ffprobe.zip -d /usr/local/bin/
       chmod +x /usr/local/bin/ffprobe
       echo "📥 Downloading ffplay..."
-      curl "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/local/bin/ffplay.zip -#
+      curl "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/local/bin/ffplay.zip
       unzip -o -q /usr/local/bin/ffplay.zip -d /usr/local/bin/
       chmod +x /usr/local/bin/ffplay
       rm /usr/local/bin/ffmpeg.zip
@@ -199,7 +224,7 @@ if [ "$1" == "list" ]; then
   sleep $del
   echo "📦 nodejs      • Javascript package manager"
   sleep $del
-  echo "⬇️ youtube-dl  • Youtube downloader"
+  echo "⬇️  youtube-dl  • Youtube downloader"
   sleep $del
   echo "🐍 python      • Popular coding language"
   sleep $del
