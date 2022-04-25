@@ -1,5 +1,5 @@
 del=0.01
-ver="3.3"
+ver="3.3.1"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -42,7 +42,7 @@ if [ -z "$1" ]; then
 fi
 if [ "$1" == "install" ]; then
   if [ "$2" == "brew" ]; then
-    if [ "$3" == "-c" ]; then
+    if [ "$3" == "-s" ]; then
       NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     else
       echo "🍺 Installing homebrew..."
@@ -58,8 +58,8 @@ if [ "$1" == "install" ]; then
     curl -fsSL https://raw.githubusercontent.com/CharlieS1103/spicetify-marketplace/main/install.sh | sh
   fi
   if [ "$2" == "youtube-dl" ]; then
-    if [ "$3" == "-c" ]; then
-      curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+    if [ "$3" == "-s" ]; then
+      curl -L -s https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
       chmod a+rx /usr/local/bin/youtube-dl
     else
       echo ""
@@ -73,14 +73,14 @@ if [ "$1" == "install" ]; then
     fi
   fi
   if [ "$2" == "python" ]; then
-    if [ "$3" == "-c" ]; then
-      curl -L https://www.python.org/ftp/python/3.10.4/python-3.10.4-macos11.pkg -o ~/python.pkg
+    if [ "$3" == "-s" ]; then
+      curl -s -L https://www.python.org/ftp/python/3.10.4/python-3.10.4-macos11.pkg -o ~/python.pkg
       sudo installer -pkg '~/python.pkg' -target /
       rm "~/python.pkg"
     else
       echo ""
       echo "⬇️ Downloading Python"
-      curl -L https://www.python.org/ftp/python/3.10.4/python-3.10.4-macos11.pkg -o ~/python.pkg
+      curl -L https://www.python.org/ftp/python/3.10.4/python-3.10.4-macos11.pkg -o ~/python.pkg -#
       echo "📥 Installing Python"
       sudo installer -pkg '~/python.pkg' -target /
       echo "🫧 Cleaning up"
@@ -92,7 +92,7 @@ if [ "$1" == "install" ]; then
   fi
   if [ "$2" == "ffmpeg" ]; then
     echo ""
-    if [ "$3" == "-c" ]; then
+    if [ "$3" == "-s" ]; then
       echo "📥 Downloading ffmpeg..."
       curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip
       unzip -o -q /usr/local/bin/ffmpeg.zip -d /usr/local/bin/
@@ -141,9 +141,23 @@ if [ "$1" == "install" ]; then
       echo "✅ Installed ffmpeg!"
     fi
   fi
-  if [ "$2" == "npm" ] || ["$2" == "nodejs" ]; then
-    echo "⬇️ Running NodeJS installer..."
-    curl -qL https://www.npmjs.com/install.sh | sh
+  if  "$2" == "npm" ] || ["$2" == "nodejs" ]; then
+    if [ "$3" == "-s" ]; then
+      curl -s -L https://nodejs.org/dist/v18.0.0/node-v18.0.0.pkg -o ~/nodejs.pkg
+      sudo installer -pkg '~/nodejs.pkg' -target /
+      rm "~/nodejs.pkg"
+    else
+      echo ""
+      echo "⬇️ Downloading NodeJS"
+      curl -L https://nodejs.org/dist/v18.0.0/node-v18.0.0.pkg -o ~/nodejs.pkg -#
+      echo "📥 Installing NodeJS"
+      sudo installer -pkg '~/nodejs.pkg' -target /
+      echo "🫧 Cleaning up"
+      rm "~/nodejs.pkg"
+      echo ""
+      echo "✅ Installed NodeJS!"
+      echo ""
+    fi
   fi
 fi
 if [ "$1" == "remove" ]; then
