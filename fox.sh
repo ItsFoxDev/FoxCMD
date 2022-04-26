@@ -1,5 +1,5 @@
 del=0.01
-ver="3.3.3"
+ver="3.3.4"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -28,9 +28,9 @@ if [ -z "$1" ]; then
   sleep $del
   echo ""
   sleep $del
-  echo "⬆️  update             • Updates FoxCMD" 
+  echo "⬆️  update                 • Updates FoxCMD" 
   sleep $del
-  echo "❌ remove             • Removes FoxCMD from your computer"
+  echo "❌ remove                 • Removes FoxCMD from your computer"
   echo ""
   sleep $del
   echo "Command syntax: \"fox <command> <arguments>\" "
