@@ -13,15 +13,12 @@ echo "\x1b[33;49m  Welcome to the FoxCMD isntaller."
 sleep 0.01
 echo ""
 sleep 0.01
-wait_for_user(){
-  read -n 1 -p "Press enter to confirm or any other key to exit." confirm
-  if ! [ "$confirm" == "" ]
-  then
-    echo "❌ Install was cancelled."
-    exit 1
-  fi
-}
-wait_for_user()
+read -n 1 -p "Press enter to confirm or any other key to exit." confirm
+if ! [ "$confirm" == "" ]
+then
+  echo "❌ Install was cancelled."
+  exit 1
+fi
 echo
 sleep 0.03
 echo "🦊 Starting FoxCMD v2 installation..."
