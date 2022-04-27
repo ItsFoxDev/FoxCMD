@@ -13,10 +13,12 @@ echo -e "\x1b[33;49m  Welcome to the FoxCMD isntaller."
 sleep 0.01
 echo ""
 sleep 0.01
-read -n 1 -p "Press enter to confirm or any other key to exit." confirm
+read -n 1 -p "Press enter to confirm or any other key to exit: " confirm
 if ! [ "$confirm" == "" ]
 then
+  echo
   echo "❌ Install was cancelled."
+  echo
   exit 1
 fi
 echo
