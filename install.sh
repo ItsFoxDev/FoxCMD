@@ -7,7 +7,7 @@ echo -e "\x1b[33;49m   | __|____ __/ __|  \/  |   \ "
 sleep $del
 echo -e "\x1b[33;49m   | _/ _ \ \ / (__| |\/| | |) |"
 sleep $del
-echo -e "\x1b[33;49m   |_|\___/_\_\\___|_|  |_|___/ "
+echo -e "\x1b[33;49m   |_|\___/_\_\\____|_|  |_|___/ "
 sleep $del
 echo -e "\x1b[33;49m  Welcome to the FoxCMD isntaller."
 sleep 0.01
