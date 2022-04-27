@@ -1,15 +1,15 @@
 del=0.01
 echo ""
 sleep $del
-echo "\x1b[33;49m    ___         ___ __  __ ___  "
+echo -e "\x1b[33;49m    ___         ___ __  __ ___  "
 sleep $del
-echo "\x1b[33;49m   | __|____ __/ __|  \/  |   \ "
+echo -e "\x1b[33;49m   | __|____ __/ __|  \/  |   \ "
 sleep $del
-echo "\x1b[33;49m   | _/ _ \ \ / (__| |\/| | |) |"
+echo -e "\x1b[33;49m   | _/ _ \ \ / (__| |\/| | |) |"
 sleep $del
-echo "\x1b[33;49m   |_|\___/_\_\\___|_|  |_|___/ "
+echo -e "\x1b[33;49m   |_|\___/_\_\\___|_|  |_|___/ "
 sleep $del
-echo "\x1b[33;49m  Welcome to the FoxCMD isntaller."
+echo -e "\x1b[33;49m  Welcome to the FoxCMD isntaller."
 sleep 0.01
 echo ""
 sleep 0.01
