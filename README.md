@@ -1,4 +1,4 @@
-![Banner](https://github.com/ItsFoxDev/FoxCMD/raw/main/banner.png)
+![Banner](https://github.com/ItsFoxDev/FoxCMD/raw/main/img/banner.png)
 ---
 # ⬇️ Install
 Simply run this command in your macOS terminal, and follow the prompts.
