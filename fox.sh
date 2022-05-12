@@ -368,14 +368,14 @@ if [ "$1" == "aiperson" ]; then
   echo ""
 fi
 if [ "$1" == "tweak" ]; then
-  if [ "$2" == "list" ]; then
+  if [ "$2" == "list" |  -z "$2" ]; then
     echo "===== 🔧 Tweak list ====================================="
     sleep $del
     echo "🗂  openline [n]      • Adds a divider between open apps"
     sleep $del
     echo "💨 suck [n]          • Enables the hidden suck animation"
     sleep $del
-    echo "⏩  instadock [n]     • Removes the delay on dock reveal"
+    echo "⏩ instadock [n]     • Removes the delay on dock reveal"
     sleep $del
     echo ""
     sleep $del
