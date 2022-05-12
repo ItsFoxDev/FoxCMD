@@ -375,6 +375,8 @@ if [ "$1" == "tweak" ]; then
     sleep $del
     echo "💨 suck [n]          • Enables the hidden suck animation"
     sleep $del
+    echo "⏩  instadock [n]     • Removes the delay on dock reveal"
+    sleep $del
     echo ""
     sleep $del
     echo "Command syntax: \"fox tweak <tweak name>\" "
@@ -406,6 +408,17 @@ if [ "$1" == "tweak" ]; then
       defaults write com.apple.dock mineffect suck
       killall Dock
       echo "✅ Enabled the suck animation."
+    fi
+  fi
+  if [ "$2" == "instadock" ]; then
+    if [ "$3" == "n" ]; then
+      defaults delete com.apple.Dock autohide-delay
+      killall Dock
+      echo "✅ Disabled instant dock reveal."
+    else
+      defaults write com.apple.Dock autohide-delay -float 0
+      killall Dock
+      echo "✅ Enabled instant dock reveal."
     fi
   fi
 fi
