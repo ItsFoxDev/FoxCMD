@@ -368,7 +368,7 @@ if [ "$1" == "aiperson" ]; then
   echo ""
 fi
 if [ "$1" == "tweak" ]; then
-  if [ "$2" == "list" |  -z "$2" ]; then
+  if [ "$2" == "list" ] || [  -z "$2" ]; then
     echo "===== 🔧 Tweak list ====================================="
     sleep $del
     echo "🗂  openline [n]      • Adds a divider between open apps"
