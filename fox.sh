@@ -88,6 +88,23 @@ if [ "$1" == "install" ]; then
       echo ""
     fi
   fi
+  if [ "$2" == "ytdlp" ]; then
+    if [ "$3" == "-s" ]; then
+      curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+      chmod +x /usr/local/bin/yt-dlp
+    else
+      echo ""
+      echo "⬇️ Downloading yt-dlp"
+      curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+      echo "📥 Installing yt-dlp"
+      chmod +x /usr/local/bin/yt-dlp
+      echo ""
+      sleep $del
+      echo "✅ Installed yt-dlp"
+      sleep $del
+      echo ""
+    fi
+  fi
   if [ "$2" == "python" ]; then
     if [ "$3" == "-s" ]; then
       curl -s -L https://www.python.org/ftp/python/3.10.4/python-3.10.4-macos11.pkg -o ~/python.pkg
@@ -225,6 +242,8 @@ if [ "$1" == "list" ]; then
   echo "📦 nodejs      • Javascript package manager"
   sleep $del
   echo "⬇️  youtube-dl  • Youtube downloader"
+  sleep $del
+  echo "⬇️  yt-dlp      • Better youtube-dl"
   sleep $del
   echo "🐍 python      • Popular coding language"
   sleep $del
