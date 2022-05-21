@@ -29,7 +29,7 @@ if [ "$confirm" == "" ]; then
     export PATH=$PATH:/opt/foxcmd
   fi
   echo "⬇️  Downloading FoxCMD..."
-  curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o /opt/foxcmd/fox -#
+  sudo curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o /opt/foxcmd/fox -#
   echo "📥 Installing FoxCMD..."
   chmod +x /opt/foxcmd/fox
   sleep $del
