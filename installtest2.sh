@@ -37,6 +37,7 @@ if [ "$confirm" == "" ]; then
   sudo curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o /usr/local/bin/fox -#
   echo "📥 Installing FoxCMD..."
   sudo chmod +x /opt/foxcmd/fox
+  sudo chmod +x /usr/local/bin/fox
   sleep $del
   echo "✅ FoxCMD is successfully installed!"
   sleep $del
