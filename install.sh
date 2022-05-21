@@ -24,12 +24,19 @@ if [ "$confirm" == "" ]; then
     echo "🔑 You may be asked to enter your password"
     sudo mkdir /opt/foxcmd
   fi
-  File="~/.zshrc"
-  if grep -s "export PATH=\"\$PATH:/opt/foxcmd\"" "$File"; then
-    echo "✅ FoxCMD is in your path!"
+  zshdir="~/.zshrc"
+  if grep -s "export PATH=\"\$PATH:/opt/foxcmd\"" "$zshdir"; then
+    echo "✅ FoxCMD is in your zsh path!"
   else
-    echo "📖 Adding foxcmd to path..."
+    echo "📖 Adding foxcmd to zsh path..."
     echo -e "export PATH=\"\$PATH:/opt/foxcmd\"" >> .zshrc
+  fi
+  bashdir="~/.bashrc"
+  if grep -s "export PATH=\"\$PATH:/opt/foxcmd\"" "$bashdir"; then
+    echo "✅ FoxCMD is in your bash path!"
+  else
+    echo "📖 Adding foxcmd to bash path..."
+    echo -e "export PATH=\"\$PATH:/opt/foxcmd\"" >> .bashrc
   fi
   echo "⬇️  Downloading FoxCMD..."
   sudo curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o /opt/foxcmd/fox -#
