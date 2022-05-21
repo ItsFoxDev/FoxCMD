@@ -18,7 +18,7 @@ if [ -z "$1" ]; then
   sleep $del
   echo "🪐 addspace [s]           • Adds a spacer to your dock"
   sleep $del
-  echo "🫧  clean                  • Cleans your mac's cache•"
+  echo "🫧  clean                  • Cleans your mac's cache"
   sleep $del
   echo "🗑  resetdock              • Resets your mac's dock"
   sleep $del
