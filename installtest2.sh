@@ -28,7 +28,7 @@ if [ "$confirm" == "" ]; then
   # if [[ "$PATH" == *"$FOXPATH"* ]]; then
   if grep -q "$FOXPATH" <<< "$PATH"; then
     echo "📖 Adding foxcmd to path..."
-    export PATH="$PATH:/opt/foxcmd"
+    zsh export PATH="$PATH:/opt/foxcmd"
   else
     echo $PATH
   fi
