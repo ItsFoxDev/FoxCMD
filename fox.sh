@@ -58,7 +58,7 @@ if [ "$1" == "install" ]; then
     curl -fsSL https://raw.githubusercontent.com/CharlieS1103/spicetify-marketplace/main/install.sh | sh
   fi
   if [ "$2" == "youtube-dl" ]; then
-    if [ ! -e "/usr/local/bin/python" ]; then
+    if [ ! -e "$foxpath/python" ]; then
       if [ ! -e "/usr/bin/python3" ]; then
         echo "⚠️ Python is required to install youtube-dl."
         sleep $del
@@ -69,18 +69,18 @@ if [ "$1" == "install" ]; then
     sleep $del
     echo "🔑 You may need to enter your password."
     sleep $del
-    sudo ln -s /usr/bin/python3 /usr/local/bin/python
+    sudo ln -s /usr/bin/python3 $foxpath/python
     fi
     
     if [ "$3" == "-s" ]; then
-      curl -L -s https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
-      chmod a+rx /usr/local/bin/youtube-dl
+      curl -L -s https://yt-dl.org/downloads/latest/youtube-dl -o $foxpath/youtube-dl
+      chmod a+rx $foxpath/youtube-dl
     else
       echo ""
       echo "⬇️ Downloading youtube-dl"
-      curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+      curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /opt/foxcmd/youtube-dl
       echo "📥 Installing youtube-dl"
-      sudo chmod a+rx /usr/local/bin/youtube-dl
+      sudo chmod a+rx /opt/foxcmd/youtube-dl
       echo ""
       sleep $del
       echo "✅ Installed youtube-dl"
@@ -90,14 +90,14 @@ if [ "$1" == "install" ]; then
   fi
   if [ "$2" == "ytdlp" ]; then
     if [ "$3" == "-s" ]; then
-      curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
-      chmod +x /usr/local/bin/yt-dlp
+      curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o $foxpath/yt-dlp
+      chmod +x $foxpath/yt-dlp
     else
       echo ""
       echo "⬇️ Downloading yt-dlp"
-      curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+      curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o $foxpath/yt-dlp
       echo "📥 Installing yt-dlp"
-      chmod +x /usr/local/bin/yt-dlp
+      chmod +x $foxpath/yt-dlp
       echo ""
       sleep $del
       echo "✅ Installed yt-dlp"
@@ -110,7 +110,7 @@ if [ "$1" == "install" ]; then
       curl -s -L https://www.python.org/ftp/python/3.10.4/python-3.10.4-macos11.pkg -o ~/python.pkg
       sudo installer -pkg '~/python.pkg' -target /
       rm "~/python.pkg"
-      sudo ln -s /usr/bin/python3 /usr/local/bin/python
+      sudo ln -s /usr/bin/python3 $foxpath/python
       
     else
       echo ""
@@ -124,7 +124,7 @@ if [ "$1" == "install" ]; then
       sleep $del
       echo "🔑 You may need to enter your password."
       sleep $del
-      sudo ln -s /usr/bin/python3 /usr/local/bin/python
+      sudo ln -s /usr/bin/python3 $foxpath/python
       echo ""
       sleep $del
       echo "✅ Installed Python!"
@@ -136,49 +136,49 @@ if [ "$1" == "install" ]; then
     echo ""
     if [ "$3" == "-s" ]; then
       echo "📥 Downloading ffmpeg..."
-      curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip
-      unzip -o -q /usr/local/bin/ffmpeg.zip -d /usr/local/bin/
-      chmod +x /usr/local/bin/ffmpeg
+      curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o $foxpath/ffmpeg.zip
+      unzip -o -q $foxpath/ffmpeg.zip -d $foxpath
+      chmod +x $foxpath/ffmpeg
       echo "📥 Downloading ffprobe..."
-      curl -fsSL "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o /usr/local/bin/ffprobe.zip
-      unzip -o -q /usr/local/bin/ffprobe.zip -d /usr/local/bin/
-      chmod +x /usr/local/bin/ffprobe
+      curl -fsSL "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o $foxpath/ffprobe.zip
+      unzip -o -q $foxpath/ffprobe.zip -d $foxpath
+      chmod +x $foxpath/ffprobe
       echo "📥 Downloading ffplay..."
-      curl "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/local/bin/ffplay.zip
-      unzip -o -q /usr/local/bin/ffplay.zip -d /usr/local/bin/
-      chmod +x /usr/local/bin/ffplay
-      rm /usr/local/bin/ffmpeg.zip
-      rm /usr/local/bin/ffplay.zip
-      rm /usr/local/bin/ffprobe.zip
+      curl "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o $foxpath/ffplay.zip
+      unzip -o -q $foxpath/ffplay.zip -d $foxpath
+      chmod +x $foxpath/ffplay
+      rm $foxpath/ffmpeg.zip
+      rm $foxpath/ffplay.zip
+      rm $foxpath/ffprobe.zip
     else
       echo "ℹ️  Note: This may take a while."
       echo "It may not seem like it is doing anything, but it is."
       echo ""
       echo "📥 Downloading ffmpeg..."
-      curl "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o /usr/local/bin/ffmpeg.zip -#
+      curl "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o $foxpath/ffmpeg.zip -#
       echo "📥 Installing ffmpeg..."
-      unzip -o -q /usr/local/bin/ffmpeg.zip -d /usr/local/bin/
+      unzip -o -q $foxpath/ffmpeg.zip -d $foxpath/
       echo "🚦 Verifying..."
-      chmod +x /usr/local/bin/ffmpeg
+      chmod +x $foxpath/ffmpeg
       echo ""
       echo "📥 Downloading dependency ffprobe..."
-      curl "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o /usr/local/bin/ffprobe.zip -#
+      curl "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o $foxpath/ffprobe.zip -#
       echo "📥 Installing ffprobe..."
-      unzip -o -q /usr/local/bin/ffprobe.zip -d /usr/local/bin/
+      unzip -o -q $foxpath/ffprobe.zip -d $foxpath/
       echo "🚦 Verifying..."
-      chmod +x /usr/local/bin/ffprobe
+      chmod +x $foxpath/ffprobe
       echo ""
       echo "📥 Downloading dependency ffplay..."
-      curl "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o /usr/local/bin/ffplay.zip -#
+      curl "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o $foxpath/ffplay.zip -#
       echo "📥 Installing ffplay..."
-      unzip -o -q /usr/local/bin/ffplay.zip -d /usr/local/bin/
+      unzip -o -q $foxpath/ffplay.zip -d $foxpath/
       echo "🚦 Verifying..."
-      chmod +x /usr/local/bin/ffplay
+      chmod +x $foxpath/ffplay
       echo ""
       echo "🧼 Cleaning up..."
-      rm /usr/local/bin/ffmpeg.zip
-      rm /usr/local/bin/ffplay.zip
-      rm /usr/local/bin/ffprobe.zip
+      rm $foxpath/ffmpeg.zip
+      rm $foxpath/ffplay.zip
+      rm $foxpath/ffprobe.zip
       echo ""
       echo "✅ Installed ffmpeg!"
     fi
@@ -203,9 +203,11 @@ if [ "$1" == "install" ]; then
   fi
 fi
 if [ "$1" == "remove" ]; then
-  read -p "Are you sure you want to uninstall FoxCMD? y/n: " confirm
+  read -p "⛔️ Are you sure you want to uninstall FoxCMD and it's standalone CLIs? y/n: " confirm
   if [ "$confirm" == "y" ]; then
-    rm /usr/local/bin/fox
+    sed -i -e '/export PATH=\"\$PATH:/opt/foxcmd\"/d' .zshrc
+    sed -i -e '/export PATH=\"\$PATH:/opt/foxcmd\"/d' .bashrc
+    rmdir -r /opt/foxcmd/
     echo "✅ Completely uninstalled FoxCMD from your computer."
   elif [ "$confirm" == "n" ]; then
     echo "❌ Uninstall canceled."
@@ -219,10 +221,10 @@ if [ "$1" == "update" ]; then
   echo "⬇️  Downloading FoxCMD"
   sleep $del
   curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o $HOME/fox.sh
-  mv $HOME/fox.sh /usr/local/bin/fox
+  mv $HOME/fox.sh $foxpath/fox
   echo "📥 Installing FoxCMD..."
   sleep $del
-  chmod +x /usr/local/bin/fox
+  chmod +x $foxpath/fox
   echo "✅ FoxCMD v2 is has been successfully updated!"
   sleep $del
   echo ""
