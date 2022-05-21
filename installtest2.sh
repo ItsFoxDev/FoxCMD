@@ -33,8 +33,8 @@ if [ "$confirm" == "" ]; then
   # echo $PATH
   #fi
   echo "⬇️  Downloading FoxCMD..."
-  sudo curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/custom-bin-test/tempfox.sh" -o /opt/foxcmd/fox -#
-  sudo curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o /usr/local/bin/fox -#
+  sudo curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o /opt/foxcmd/fox -#
+  sudo curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/custom-bin-test/tempfox.sh" -o /usr/local/bin/fox -#
   echo "📥 Installing FoxCMD..."
   sudo chmod +x /opt/foxcmd/fox
   sudo chmod +x /usr/local/bin/fox
