@@ -451,6 +451,6 @@ if [ "$1" == "dl" ]; then
     echo "ℹ️  ytdlp is required to use the \"dl\" command"
     fox install ytdlp
   fi
-  yt-dlp -f mp4 -o "~/Desktop/%(title)s.mp4" '$2'
+  yt-dlp -f mp4 -o "~/Desktop/%(title)s.mp4" '"$2"'
   echo "✅ Saved the video to your desktop!"
 fi
