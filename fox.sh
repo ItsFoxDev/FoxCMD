@@ -91,14 +91,14 @@ if [ "$1" == "install" ]; then
   fi
   if [ "$2" == "ytdlp" ]; then
     if [ "$3" == "-s" ]; then
-      curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o $foxpath/yt-dlp
-      chmod +x $foxpath/yt-dlp
+      curl -fsSL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o $foxpath/ytdlp
+      chmod +x $foxpath/ytdlp
     else
       echo ""
       echo "⬇️ Downloading yt-dlp"
-      curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o $foxpath/yt-dlp
+      curl -fsSL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o $foxpath/ytdlp
       echo "📥 Installing yt-dlp"
-      chmod +x $foxpath/yt-dlp
+      chmod +x $foxpath/ytdlp
       echo ""
       sleep $del
       echo "✅ Installed yt-dlp"
