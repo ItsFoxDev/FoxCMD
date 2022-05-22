@@ -1,3 +1,4 @@
+foxpath="/opt/foxcmd"s
 del=0.01
 ver="3.3.6"
 if [ -z "$1" ]; then
