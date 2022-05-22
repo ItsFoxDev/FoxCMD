@@ -1,6 +1,6 @@
 foxpath="/opt/foxcmd"
 del=0.01
-ver="4.2"
+ver="4.2.1"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -452,5 +452,5 @@ if [ "$1" == "dl" ]; then
     fox install ytdlp
   fi
   yt-dlp -f mp4 -o "~/Desktop/%(title)s.mp4" '$2'
-  echo "✅ Saved the video to your desktop!
+  echo "✅ Saved the video to your desktop!"
 fi
