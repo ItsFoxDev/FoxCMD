@@ -1,6 +1,6 @@
 foxpath="/opt/foxcmd"s
 del=0.01
-ver="3.3.6"
+ver="4.1.1"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
