@@ -23,6 +23,7 @@ if [ "$confirm" == "" ]; then
   if [ ! -d "/opt/foxcmd" ]; then 
     echo "🔑 You may be asked to enter your password"
     sudo mkdir /opt/foxcmd
+    chmod a+w /opt/foxcmd
   fi
   zshdir="~/.zshrc"
   if grep -s "export PATH=\"\$PATH:/opt/foxcmd\"" "$zshdir"; then
