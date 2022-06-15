@@ -23,18 +23,18 @@ if [ "$confirm" == "" ]; then
   mkdir ~/.foxcmd
   chmod a+w ~/.foxcmd
   zshdir="$HOME/.zshrc"
-  if grep -s "export PATH=\"\$PATH:$HOME/.foxcmd\"" "$zshdir"; then
+  if grep -s "export PATH=\"\$PATH:\$HOME/.foxcmd\"" "$zshdir"; then
     echo "✅ FoxCMD is in your zsh path!"
   else
     echo "📖 Adding foxcmd to zsh path..."
-    echo -e "export PATH=\"\$PATH:$HOME/.foxcmd\"" >> .zshrc
+    echo -e "export PATH=\"\$PATH:\$HOME/.foxcmd\"" >> .zshrc
   fi
   bashdir="$HOME/.bashrc"
-  if grep -s "export PATH=\"\$PATH:$HOME/.foxcmd\"" "$bashdir"; then
+  if grep -s "export PATH=\"\$PATH:\$HOME/.foxcmd\"" "$bashdir"; then
     echo "✅ FoxCMD is in your bash path!"
   else
     echo "📖 Adding foxcmd to bash path..."
-    echo -e "export PATH=\"\$PATH:$HOME/.foxcmd\"" >> .bashrc
+    echo -e "export PATH=\"\$PATH:\$HOME/.foxcmd\"" >> .bashrc
   fi
   echo "⬇️  Downloading FoxCMD..."
   curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o ~/.foxcmd/fox -#
