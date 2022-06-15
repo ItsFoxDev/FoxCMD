@@ -1,6 +1,6 @@
-foxpath="/opt/foxcmd"
+foxpath="~/.foxcmd"
 del=0.01
-ver="4.2.1"
+ver="4.3"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -17,11 +17,7 @@ if [ -z "$1" ]; then
   sleep $del
   echo "⭐️ starwars               • Watch ascii starwars"
   sleep $del
-  echo "🪐 addspace [s]           • Adds a spacer to your dock"
-  sleep $del
   echo "🫧  clean                  • Cleans your mac's cache"
-  sleep $del
-  echo "🗑  resetdock              • Resets your mac's dock"
   sleep $del
   echo "⬇️  dl <url>               • Downloads a youtube video"
   sleep $del
@@ -81,9 +77,9 @@ if [ "$1" == "install" ]; then
     else
       echo ""
       echo "⬇️ Downloading youtube-dl"
-      curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /opt/foxcmd/youtube-dl
+      curl -L https://yt-dl.org/downloads/latest/youtube-dl -o $foxpath/youtube-dl
       echo "📥 Installing youtube-dl"
-      sudo chmod a+rx /opt/foxcmd/youtube-dl
+      sudo chmod a+rx $foxpath/youtube-dl
       echo ""
       sleep $del
       echo "✅ Installed youtube-dl"
@@ -208,9 +204,9 @@ fi
 if [ "$1" == "remove" ]; then
   read -p "⛔️ Are you sure you want to uninstall FoxCMD and it's standalone CLIs? y/n: " confirm
   if [ "$confirm" == "y" ]; then
-    sed -i -e '/export PATH=\"\$PATH:/opt/foxcmd\"/d' .zshrc
-    sed -i -e '/export PATH=\"\$PATH:/opt/foxcmd\"/d' .bashrc
-    rmdir -r /opt/foxcmd/
+    sed -i -e '/export PATH=\"\$PATH:$foxpath\"/d' .zshrc
+    sed -i -e '/export PATH=\"\$PATH:$foxpath\"/d' .bashrc
+    rmdir -r $foxpath
     echo "✅ Completely uninstalled FoxCMD from your computer."
   elif [ "$confirm" == "n" ]; then
     echo "❌ Uninstall canceled."
@@ -278,29 +274,6 @@ if [ "$1" == "starwars" ]; then
   echo "Loading starwars. To exit, press CTRL+C"
   sleep 1
   nc towel.blinkenlights.nl 23
-fi
-if [ "$1" == "addspace" ]; then
-  if [ "$2" == "s" ]; then
-    defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
-    killall Dock
-  else
-    defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
-    killall Dock
-  fi
-  echo "✅ Added a spacer to your dock."
-  echo "ℹ️  If it didn't work, you may have to run the command again."
-fi
-if [ "$1" == "resetdock" ]; then
-  read -p "Are you sure you want to reset your dock? y/n: " confirm
-  if [ "$confirm" == "y" ]; then
-    defaults delete com.apple.dock
-    killall Dock
-    echo "✅ Reset your dock to system defaults."
-  elif [ "$confirm" == "n" ]; then
-    echo "❌ Dock reset canceled."
-  else
-    echo "❌ Please enter either \"y\" or \"n\"."
-  fi
 fi
 if [ "$1" == "clean" ]; then
     echo ""
@@ -401,6 +374,10 @@ if [ "$1" == "tweak" ]; then
     sleep $del
     echo "⏩ instadock [n]     • Removes the delay on dock reveal"
     sleep $del
+    echo "🗑  resetdock         • Resets your mac's dock"
+    sleep $del
+    echo "🪐 addspace [s]      • Adds a spacer to your dock"
+    sleep $del
     echo ""
     sleep $del
     echo "Command syntax: \"fox tweak <tweak name>\" "
@@ -433,6 +410,29 @@ if [ "$1" == "tweak" ]; then
       killall Dock
       echo "✅ Enabled the suck animation."
     fi
+  fi
+  if [ "$2" == "resetdock" ]; then
+    read -p "Are you sure you want to reset your dock? y/n: " confirm
+    if [ "$confirm" == "y" ]; then
+      defaults delete com.apple.dock
+      killall Dock
+      echo "✅ Reset your dock to system defaults."
+    elif [ "$confirm" == "n" ]; then
+      echo "❌ Dock reset canceled."
+    else
+      echo "❌ Please enter either \"y\" or \"n\"."
+    fi
+  fi
+  if [ "$2" == "addspace" ]; then
+    if [ "$3" == "s" ]; then
+      defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'
+      killall Dock
+    else
+      defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
+      killall Dock
+    fi
+    echo "✅ Added a spacer to your dock."
+    echo "ℹ️  If it didn't work, you may have to run the command again."
   fi
   if [ "$2" == "instadock" ]; then
     if [ "$3" == "n" ]; then
