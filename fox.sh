@@ -1,6 +1,6 @@
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.3.2"
+ver="4.3.3"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -219,8 +219,7 @@ if [ "$1" == "update" ]; then
   sleep $del
   echo "⬇️  Downloading FoxCMD"
   sleep $del
-  curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o $HOME/fox.sh
-  mv $HOME/fox.sh $foxpath/fox
+  curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o $foxpath/fox
   echo "📥 Installing FoxCMD..."
   sleep $del
   chmod 755 $foxpath/fox
