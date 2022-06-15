@@ -1,6 +1,6 @@
-foxpath="~/.foxcmd"
+foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.3"
+ver="4.3.2"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -223,7 +223,7 @@ if [ "$1" == "update" ]; then
   mv $HOME/fox.sh $foxpath/fox
   echo "📥 Installing FoxCMD..."
   sleep $del
-  chmod +x $foxpath/fox
+  chmod 755 $foxpath/fox
   echo "✅ FoxCMD v2 is has been successfully updated!"
   sleep $del
   echo ""
