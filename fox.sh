@@ -206,7 +206,7 @@ if [ "$1" == "remove" ]; then
   if [ "$confirm" == "y" ]; then
     sed -i -e '/export PATH=\"\$PATH:$foxpath\"/d' .zshrc
     sed -i -e '/export PATH=\"\$PATH:$foxpath\"/d' .bashrc
-    rmdir -r $foxpath
+    rm -r $foxpath
     echo "✅ Completely uninstalled FoxCMD from your computer."
   elif [ "$confirm" == "n" ]; then
     echo "❌ Uninstall canceled."
