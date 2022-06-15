@@ -22,28 +22,29 @@ if [ "$confirm" == "" ]; then
   sleep 0.3
   mkdir ~/.foxcmd
   chmod a+w ~/.foxcmd
-  zshdir="~/.zshrc"
-  if grep -s "export PATH=\"\$PATH:~/.foxcmd\"" "$zshdir"; then
+  zshdir="$HOME/.zshrc"
+  if grep -s "export PATH=\"\$PATH:$HOME/.foxcmd\"" "$zshdir"; then
     echo "✅ FoxCMD is in your zsh path!"
   else
     echo "📖 Adding foxcmd to zsh path..."
-    echo -e "export PATH=\"\$PATH:~/.foxcmd\"" >> .zshrc
+    echo -e "export PATH=\"\$PATH:$HOME/.foxcmd\"" >> .zshrc
   fi
-  bashdir="~/.bashrc"
-  if grep -s "export PATH=\"\$PATH:~/.foxcmd\"" "$bashdir"; then
+  bashdir="$HOME/.bashrc"
+  if grep -s "export PATH=\"\$PATH:$HOME/.foxcmd\"" "$bashdir"; then
     echo "✅ FoxCMD is in your bash path!"
   else
     echo "📖 Adding foxcmd to bash path..."
-    echo -e "export PATH=\"\$PATH:~/.foxcmd\"" >> .bashrc
+    echo -e "export PATH=\"\$PATH:$HOME/.foxcmd\"" >> .bashrc
   fi
   echo "⬇️  Downloading FoxCMD..."
-  sudo curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o ~/.foxcmd/fox -#
+  curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o ~/.foxcmd/fox -#
   echo "📥 Installing FoxCMD..."
-  chmod +x ~/.foxcmd/fox
+  chmod 755 ~/.foxcmd/fox
   sleep $del
   echo "✅ FoxCMD is successfully installed!"
   sleep $del
   echo "🏁 To run FoxCMD, run \"fox\""
 else
+  echo ""
   echo "❌ Install was cancelled."
 fi
