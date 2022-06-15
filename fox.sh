@@ -1,6 +1,6 @@
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.3.3"
+ver="4.3.4"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -182,7 +182,7 @@ if [ "$1" == "install" ]; then
       echo "✅ Installed ffmpeg!"
     fi
   fi
-  if [ "$2" == "npm" ] || ["$2" == "nodejs" ]; then
+  if [ "$2" == "npm" ] || [ "$2" == "nodejs" ]; then
     if [ "$3" == "-s" ]; then
       curl -s -L https://nodejs.org/dist/v18.0.0/node-v18.0.0.pkg -o ~/nodejs.pkg
       sudo installer -pkg '~/nodejs.pkg' -target /
