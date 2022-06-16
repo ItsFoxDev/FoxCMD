@@ -12,17 +12,17 @@ The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-L
 # 📄 Commands
 ```
 ===== 📄 Commands =======================================
-⬇️ install <package>  • Installs a package
-📦 list               • Lists installable packages
-👀 hdi <y/n> [o]      • Hides icons on your desktop
-⭐️ starwars           • Watch ascii starwars
-🪐 addspace [s]       • Adds a spacer to your dock
-♻️ clean              • Cleans your mac's cache•
-🗑 resetdock          • Resets your mac's dock
-🤖 aiperson <count>   • Bulk fetches thispersondoesnotexist.com
+⬇️ install <package> [-c] • Installs a package
+📦 list                   • Lists installable packages
+👀 hdi <y/n> [o]          • Hides icons on your desktop
+⭐️ starwars               • Watch ascii starwars
+🫧 clean                  • Cleans your mac's cache
+⬇️ dl <url>               • Downloads a youtube video
+🤖 aiperson <count>       • Bulk fetches thispersondoesnotexist.com
+🔧 tweak <list/tweak>     • Simple tweaks for your mac
 
-⬆️ update             • Updates FoxCMD
-❌ remove             • Removes FoxCMD from your computer
+⬆️  update                 • Updates FoxCMD
+❌ remove                 • Removes FoxCMD from your computer
 
 Command syntax: "fox <command> <arguments>" 
 Arguments: [optional] <required>
