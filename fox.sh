@@ -1,6 +1,6 @@
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.3.4"
+ver="4.3.5"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -17,7 +17,7 @@ if [ -z "$1" ]; then
   sleep $del
   echo "⭐️ starwars               • Watch ascii starwars"
   sleep $del
-  echo "🫧  clean                  • Cleans your mac's cache"
+  echo "🔆 clean                  • Cleans your mac's cache"
   sleep $del
   echo "⬇️  dl <url>               • Downloads a youtube video"
   sleep $del
@@ -76,7 +76,7 @@ if [ "$1" == "install" ]; then
       chmod a+rx $foxpath/youtube-dl
     else
       echo ""
-      echo "⬇️ Downloading youtube-dl"
+      echo "⬇️  Downloading youtube-dl"
       curl -L https://yt-dl.org/downloads/latest/youtube-dl -o $foxpath/youtube-dl
       echo "📥 Installing youtube-dl"
       sudo chmod a+rx $foxpath/youtube-dl
@@ -93,7 +93,7 @@ if [ "$1" == "install" ]; then
       chmod +x $foxpath/ytdlp
     else
       echo ""
-      echo "⬇️ Downloading yt-dlp"
+      echo "⬇️  Downloading yt-dlp"
       curl -fsSL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o $foxpath/ytdlp
       echo "📥 Installing yt-dlp"
       chmod +x $foxpath/ytdlp
@@ -113,7 +113,7 @@ if [ "$1" == "install" ]; then
       
     else
       echo ""
-      echo "⬇️ Downloading Python"
+      echo "⬇️  Downloading Python"
       curl -L https://www.python.org/ftp/python/3.10.4/python-3.10.4-macos11.pkg -o ~/python.pkg -#
       echo "📥 Installing Python"
       sudo installer -pkg '~/python.pkg' -target /
