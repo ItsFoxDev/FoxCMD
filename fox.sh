@@ -1,6 +1,6 @@
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.3.5"
+ver="4.4"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -19,7 +19,7 @@ if [ -z "$1" ]; then
   sleep $del
   echo "🔆 clean                  • Cleans your mac's cache"
   sleep $del
-  echo "⬇️  dl <url>               • Downloads a youtube video"
+  echo "⬇️  dl                     • Downloads a youtube video"
   sleep $del
   echo "🤖 aiperson <count>       • Bulk fetches thispersondoesnotexist.com"
   sleep $del
@@ -450,6 +450,7 @@ if [ "$1" == "dl" ]; then
     echo "ℹ️  ytdlp is required to use the \"dl\" command"
     fox install ytdlp
   fi
-  yt-dlp -f mp4 -o "~/Desktop/%(title)s.mp4" "$2"
-  echo "✅ Saved the video to your desktop!"
+  read -p "🎥 Please enter YouTube URL: " yturl
+  ytdlp -f mp4 --embed-thumbnail -o "%(title)s.%(ext)s" "$yturl"
+  echo "✅ Saved the video to your home folder!"
 fi
