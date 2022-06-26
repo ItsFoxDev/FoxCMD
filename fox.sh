@@ -1,6 +1,6 @@
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.4"
+ver="4.4.1"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -451,6 +451,6 @@ if [ "$1" == "dl" ]; then
     fox install ytdlp
   fi
   read -p "🎥 Please enter YouTube URL: " yturl
-  ytdlp -f mp4 --embed-thumbnail -o "%(title)s.%(ext)s" "$yturl"
+  ytdlp -q --progress -f mp4 --embed-thumbnail -o "%(title)s.%(ext)s" "$yturl"
   echo "✅ Saved the video to your home folder!"
 fi
