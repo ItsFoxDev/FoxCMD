@@ -1,6 +1,6 @@
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.4.1"
+ver="4.5"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -272,9 +272,21 @@ fi
 if [ "$1" == "dl" ]; then
   if [ ! -e "$foxpath/ytdlp" ]; then
     echo "ℹ️  ytdlp is required to use the \"dl\" command"
-    fox install ytdlp
+    foxint-install package ytdlp
   fi
   read -p "🎥 Please enter YouTube URL: " yturl
-  ytdlp -q --progress -f mp4 --embed-thumbnail -o "%(title)s.%(ext)s" "$yturl"
-  echo "✅ Saved the video to your home folder!"
+  if [ "$yturl" == *"/playlist?list=" ]; then
+    echo "📄 Playlist detected. Which items do you want to download?"
+    read -p "Format: \"first:last\" OR \"all\"" playlistitems
+    if [ "$playlistitems" == "all" ]; then
+      ytdlp -q --progress -f mp4 --embed-thumbnail -o "%(title)s.%(ext)s" "$yturl"
+      echo "✅ Saved all playlist items to your home folder!"
+    else
+      ytdlp -q --progress -f mp4 --playlist-items $playlistitems --embed-thumbnail -o "%(title)s.%(ext)s" "$yturl"
+      echo "✅ Saved selected playlist items to your home folder!"
+    fi
+  else
+   ytdlp -q --progress -f mp4 --embed-thumbnail -o "%(title)s.%(ext)s" "$yturl"
+   echo "✅ Saved the video to your home folder!"
+  fi
 fi
