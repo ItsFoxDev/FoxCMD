@@ -1,3 +1,25 @@
+if [ "$1" == "list" ]; then
+  echo ""
+  sleep $del
+  echo "======= 📦 Packages 📦 ======="
+  sleep $del
+  echo "🍺 brew        • Package manager"
+  sleep $del
+  echo "🌶  spicetify   • Themes for Spotify"
+  sleep $del
+  echo "🎥 ffmpeg      • Video encoder"
+  sleep $del
+  echo "📦 nodejs      • Javascript package manager"
+  sleep $del
+  echo "⬇️  youtube-dl  • Youtube downloader"
+  sleep $del
+  echo "⬇️  yt-dlp      • Better youtube-dl"
+  sleep $del
+  echo "🐍 python      • Popular coding language"
+  sleep $del
+  echo ""
+  sleep $del
+fi
 if [ "$1" == "package" ]
   if [ "$2" == "brew" ]; then
     if [ "$3" == "-s" ]; then
