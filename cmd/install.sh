@@ -20,7 +20,7 @@ if [ "$1" == "list" ]; then
   echo ""
   sleep $del
 fi
-if [ "$1" == "package" ]
+if [ "$1" == "package" ]; then
   if [ "$2" == "brew" ]; then
     if [ "$3" == "-s" ]; then
       NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -43,7 +43,7 @@ if [ "$1" == "package" ]
         echo "⚠️ Python is required to install youtube-dl."
         sleep $del
         echo "🔧 Installing python now..."
-        fox install python -s
+        foxint-install python -s
       fi
     echo "🔗 Creating python symlink..."
     sleep $del
