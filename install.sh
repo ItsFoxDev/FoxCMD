@@ -38,8 +38,10 @@ if [ "$confirm" == "" ]; then
   fi
   echo "⬇️  Downloading FoxCMD..."
   curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o ~/.foxcmd/fox -#
+  curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/cmd/install.sh" -o ~/.foxcmd/foxint-install -#
   echo "📥 Installing FoxCMD..."
   chmod 755 ~/.foxcmd/fox
+  chmod 755 ~/.foxcmd/foxint-install
   sleep $del
   echo "✅ FoxCMD is successfully installed!"
   sleep $del
