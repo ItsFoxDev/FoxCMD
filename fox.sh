@@ -1,6 +1,6 @@
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.5"
+ver="4.5.1"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -275,7 +275,7 @@ if [ "$1" == "dl" ]; then
     foxint-install package ytdlp
   fi
   read -p "🎥 Please enter YouTube URL: " yturl
-  if [ "$yturl" == *"/playlist?list=" ]; then
+  if [ "$yturl" == *"/playlist?list="* ]; then
     echo "📄 Playlist detected. Which items do you want to download?"
     read -p "Format: \"first:last\" OR \"all\"" playlistitems
     if [ "$playlistitems" == "all" ]; then
