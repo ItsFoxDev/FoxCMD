@@ -94,15 +94,15 @@ if [ "$1" == "package" ]
     echo ""
     if [ "$3" == "-s" ]; then
       echo "📥 Downloading ffmpeg..."
-      curl -fsSL "https://evermeet.cx/ffmpeg/ffmpeg-5.0.zip" -o $foxpath/ffmpeg.zip
+      curl -fsSL "https://evermeet.cx/ffmpeg/getrelease/zip" -o $foxpath/ffmpeg.zip
       unzip -o -q $foxpath/ffmpeg.zip -d $foxpath
       chmod +x $foxpath/ffmpeg
       echo "📥 Downloading ffprobe..."
-      curl -fsSL "https://evermeet.cx/ffmpeg/ffprobe-5.0.zip" -o $foxpath/ffprobe.zip
+      curl -fsSL "https://evermeet.cx/ffmpeg/getrelease/ffprobe/zip" -o $foxpath/ffprobe.zip
       unzip -o -q $foxpath/ffprobe.zip -d $foxpath
       chmod +x $foxpath/ffprobe
       echo "📥 Downloading ffplay..."
-      curl "https://evermeet.cx/ffmpeg/ffplay-5.0.zip" -o $foxpath/ffplay.zip
+      curl "https://evermeet.cx/ffmpeg/getrelease/ffplay/zip" -o $foxpath/ffplay.zip
       unzip -o -q $foxpath/ffplay.zip -d $foxpath
       chmod +x $foxpath/ffplay
       rm $foxpath/ffmpeg.zip
