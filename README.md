@@ -1,4 +1,4 @@
-![Banner](https://github.com/ItsFoxDev/FoxCMD/raw/main/img/banner.png)
+![Banner](https://github.com/ItsFoxDev/FoxCMD/raw/main/img/banner-round.png)
 ---
 # ⬇️ Install
 Simply run this command in your macOS terminal, and follow the prompts.
@@ -16,12 +16,12 @@ The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-L
 📦 list                   • Lists installable packages
 👀 hdi <y/n> [o]          • Hides icons on your desktop
 ⭐️ starwars               • Watch ascii starwars
-🫧 clean                  • Cleans your mac's cache
-⬇️ dl <url>               • Downloads a youtube video
+🔆 clean                  • Cleans your mac's cache
+⬇️ dl                     • Downloads a youtube video
 🤖 aiperson <count>       • Bulk fetches thispersondoesnotexist.com
 🔧 tweak <list/tweak>     • Simple tweaks for your mac
 
-⬆️  update                 • Updates FoxCMD
+⬆️ update                 • Updates FoxCMD
 ❌ remove                 • Removes FoxCMD from your computer
 
 Command syntax: "fox <command> <arguments>" 
