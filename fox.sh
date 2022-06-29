@@ -52,8 +52,8 @@ if [ -z "$1" ]; then
 fi
 
 # Redirects "install" and "list" commands to seperate command manager
-if [ "$1" == "install" ]; then; foxint-install $1 $2 $3 $4 $5; fi
-if [ "$1" == "list" ]; then; foxint-install list; fi
+if [ "$1" == "install" ]; then;   foxint-install $1 $2 $3 $4 $5; fi
+if [ "$1" == "list" ]; then;   foxint-install list; fi
 
 if [ "$1" == "remove" ]; then
   read -p "⛔️ Are you sure you want to uninstall FoxCMD and it's standalone CLIs? y/n: " confirm
