@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # ╔═[ 📄 LICENSE ]════════════════════════════════════════════════╗
 # ║ This software is licensed under the Alofsto General Public    ║
@@ -13,7 +14,7 @@ bgcolor_black="\u001b[40m";bgcolor_red="\u001b[41m";bgcolor_green="\u001b[42m";b
 
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.6"
+ver="4.6.1"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
@@ -52,8 +53,13 @@ if [ -z "$1" ]; then
 fi
 
 # Redirects "install" and "list" commands to seperate command manager
-if [ "$1" == "install" ]; then;   foxint-install $1 $2 $3 $4 $5; fi
-if [ "$1" == "list" ]; then;   foxint-install list; fi
+if [ "$1" == "install" ]; then
+  foxint-install $1 $2 $3 $4 $5
+fi
+
+if [ "$1" == "list" ]; then
+  foxint-install list;
+fi
 
 if [ "$1" == "remove" ]; then
   read -p "⛔️ Are you sure you want to uninstall FoxCMD and it's standalone CLIs? y/n: " confirm
