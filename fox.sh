@@ -14,41 +14,41 @@ bgcolor_black="\u001b[40m";bgcolor_red="\u001b[41m";bgcolor_green="\u001b[42m";b
 
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.6.3"
+ver="4.6.2"
 if [ -z "$1" ]; then
-  printf ""
-  printf "🦊 FoxCMD v$ver"
+  echo ""
+  echo "🦊 FoxCMD v$ver"
   sleep $del
-  printf ""
+  echo ""
   sleep $del
-  printf "${bold}===== 📄 Commands ======================================="
+  echo "${bold}===== 📄 Commands ======================================="
   sleep $del
-  printf "⬇️  install <package> [-c] • Installs a package"
+  echo "⬇️  install <package> [-c] • Installs a package"
   sleep $del
-  printf "📦 list                   • Lists installable packages"
+  echo "📦 list                   • Lists installable packages"
   sleep $del
-  printf "👀 hdi <y/n> [o]          • Hides icons on your desktop" 
+  echo "👀 hdi <y/n> [o]          • Hides icons on your desktop" 
   sleep $del
-  printf "⭐️ starwars               • Watch ascii starwars"
+  echo "⭐️ starwars               • Watch ascii starwars"
   sleep $del
-  printf "🔆 clean                  • Cleans your mac's cache"
+  echo "🔆 clean                  • Cleans your mac's cache"
   sleep $del
-  printf "⬇️  dl                     • Downloads a youtube video"
+  echo "⬇️  dl                     • Downloads a youtube video"
   sleep $del
-  printf "🤖 aiperson <count>       • Bulk fetches thispersondoesnotexist.com"
+  echo "🤖 aiperson <count>       • Bulk fetches thispersondoesnotexist.com"
   sleep $del
-  printf "🔧 tweak <list/tweak>     • Simple tweaks for your mac"
+  echo "🔧 tweak <list/tweak>     • Simple tweaks for your mac"
   sleep $del
-  printf ""
+  echo ""
   sleep $del
-  printf "⬆️  update                 • Updates FoxCMD" 
+  echo "⬆️  update                 • Updates FoxCMD" 
   sleep $del
-  printf "❌ remove                 • Removes FoxCMD from your computer"
-  printf ""
+  echo "❌ remove                 • Removes FoxCMD from your computer"
+  echo ""
   sleep $del
-  printf "Command syntax: ${color_blue}\$ fox <command> <arguments>"
+  echo "Command syntax: ${color_blue}\$ fox <command> <arguments>"
   sleep $del
-  printf "Arguments: ${color_green}[optional] ${color_yellow}<required>"
+  echo "Arguments: ${color_green}[optional] ${color_yellow}<required>"
   sleep $del
 fi
 
@@ -67,25 +67,25 @@ if [ "$1" == "remove" ]; then
     sed -i '/export PATH=\"\$PATH:$foxpath\"/d' .zshrc
     sed -i '/export PATH=\"\$PATH:$foxpath\"/d' .bashrc
     rm -r $foxpath
-    printf "${color_green}✅ Completely uninstalled FoxCMD from your computer."
+    echo "${color_green}✅ Completely uninstalled FoxCMD from your computer."
   elif [ "$confirm" == "n" ]; then
-    printf "${color_red}❌ Uninstall canceled."
+    echo "${color_red}❌ Uninstall canceled."
   else
-    printf "${color_red}❌ Please enter either \"y\" or \"n\"."
+    echo "${color_red}❌ Please enter either \"y\" or \"n\"."
   fi
 fi
 if [ "$1" == "update" ]; then
-  printf ""
+  echo ""
   sleep $del
-  printf "⬇️  Downloading FoxCMD"
+  echo "⬇️  Downloading FoxCMD"
   sleep $del
   curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o $foxpath/fox
   curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/cmd/install.sh" -o $foxpath/foxint-install
-  printf "📥 Installing FoxCMD..."
+  echo "📥 Installing FoxCMD..."
   sleep $del
   chmod 755 $foxpath/fox
   chmod 755 $foxpath/foxint-install
-  printf "${color_green}✅ FoxCMD v2 is has been successfully updated!"
+  echo "${color_green}✅ FoxCMD v2 is has been successfully updated!"
   sleep $del
 fi
 if [ "$1" == "hdi" ]; then
@@ -96,98 +96,98 @@ if [ "$1" == "hdi" ]; then
     else
       chflags hidden ~/Desktop/*
     fi
-    printf "${color_green}✅ Hid desktop icons. To unhide, run \"fox hdi n\"" 
+    echo "${color_green}✅ Hid desktop icons. To unhide, run \"fox hdi n\"" 
   fi
   if [ "$2" == "n" ]; then
     chflags nohidden ~/Desktop/*
     defaults write com.apple.finder CreateDesktop true
-    printf "${color_green}✅ Unhid desktop icons. To hide, run \"fox hdi y\"" 
+    echo "${color_green}✅ Unhid desktop icons. To hide, run \"fox hdi y\"" 
   fi
   if [ -z "$2" ]; then
-    printf "${color_red}❌ Please use \"fox hdi y\" or \"fox hdi n\""
+    echo "${color_red}❌ Please use \"fox hdi y\" or \"fox hdi n\""
   fi
 fi
 if [ "$1" == "starwars" ]; then
-  printf "Loading starwars. To exit, press CTRL+C"
+  echo "Loading starwars. To exit, press CTRL+C"
   sleep 1
   nc towel.blinkenlights.nl 23
 fi
 
 if [ "$1" == "aiperson" ]; then
   if [ $2q 0 ]; then
-    printf "${color_red}❌ Please enter a valid number"
+    echo "${color_red}❌ Please enter a valid number"
     sleep $del
-    printf "Syntax: \"fox aiperson <number of people>\""
+    echo "Syntax: \"fox aiperson <number of people>\""
   fi
-  printf ""
-  printf "🏁 Setting things up..."
-  printf ""
+  echo ""
+  echo "🏁 Setting things up..."
+  echo ""
   mkdir ~/people
   sleep 0.1
-  printf "🌐 Connecting to thispersondoesnotexist.com"
+  echo "🌐 Connecting to thispersondoesnotexist.com"
   sleep 0.1
-  printf ""
+  echo ""
   count=1
   for i in $(seq $2)
   do
-    printf "⬇️ Downloading image $count/$2"
+    echo "⬇️ Downloading image $count/$2"
     curl -fsSL "https://thispersondoesnotexist.com/image" -o ~/people/$count.jpg
     sleep 0.5
     count=$((count+1))
   done
-  printf ""
-  printf "📂 Zipping files to desktop..."
+  echo ""
+  echo "📂 Zipping files to desktop..."
   cd ~/people
   zip -q ~/Desktop/people.zip ./*
   sleep 0.3
-  printf "🧼 Cleaning up..."
+  echo "🧼 Cleaning up..."
   cd
   rm -r ~/people
-  printf ""
-  printf "${color_green}✅ Saved $2 people to your desktop!"
+  echo ""
+  echo "${color_green}✅ Saved $2 people to your desktop!"
 fi
 if [ "$1" == "tweak" ]; then
   if [ "$2" == "list" ] || [  -z "$2" ]; then
-    printf "===== 🔧 Tweak list ====================================="
+    echo "===== 🔧 Tweak list ====================================="
     sleep $del
-    printf "🗂  openline [n]      • Adds a divider between open apps"
+    echo "🗂  openline [n]      • Adds a divider between open apps"
     sleep $del
-    printf "💨 suck [n]          • Enables the hidden suck animation"
+    echo "💨 suck [n]          • Enables the hidden suck animation"
     sleep $del
-    printf "⏩ instadock [n]     • Removes the delay on dock reveal"
+    echo "⏩ instadock [n]     • Removes the delay on dock reveal"
     sleep $del
-    printf "🗑  resetdock         • Resets your mac's dock"
+    echo "🗑  resetdock         • Resets your mac's dock"
     sleep $del
-    printf "🪐 addspace [s]      • Adds a spacer to your dock"
+    echo "🪐 addspace [s]      • Adds a spacer to your dock"
     sleep $del
-    printf ""
+    echo ""
     sleep $del
-    printf "Command syntax: \"fox tweak <tweak name>\" "
+    echo "Command syntax: \"fox tweak <tweak name>\" "
     sleep $del
-    printf "ℹ️ Add \"n\" to the end of the command to disable the tweak."
+    echo "ℹ️ Add \"n\" to the end of the command to disable the tweak."
   fi
   if [ "$2" == "openline" ]; then
     if [ "$3" == "n" ]; then
       defaults write com.apple.dock show-recents -bool true;
       defaults write com.apple.dock show-recent-count -int 3;
       killall Dock
-      printf "${color_green}✅ Disabled the openline tweak."
+      echo "${color_green}✅ Disabled the openline tweak."
     else
       defaults write com.apple.dock show-recents -bool true;
       defaults write com.apple.dock show-recent-count -int 0;
       killall Dock
-      printf "${color_green}✅ Enabled the openline tweak."
+      echo "${color_green}✅ Enabled the openline tweak."
     fi
   fi
   if [ "$2" == "suck" ]; then
     if [ "$3" == "n" ]; then
       defaults write com.apple.dock mineffect genie
       killall Dock
-      printf "${color_green}✅ Disabled the suck animation."
+      echo "${color_green}✅ Disabled the suck animation."
     else
       defaults write com.apple.dock mineffect suck
       killall Dock
-      printf "${color_green}✅ Enabled the suck animation."
+      echo "${color_green}✅ Enabled the suck animation."
     fi
   fi
   if [ "$2" == "resetdock" ]; then
@@ -195,11 +195,11 @@ if [ "$1" == "tweak" ]; then
     if [ "$confirm" == "y" ]; then
       defaults delete com.apple.dock
       killall Dock
-      printf "${color_green}✅ Reset your dock to system defaults."
+      echo "${color_green}✅ Reset your dock to system defaults."
     elif [ "$confirm" == "n" ]; then
-      printf "${color_red}❌ Dock reset canceled."
+      echo "${color_red}❌ Dock reset canceled."
     else
-      printf "${color_red}❌ Please enter either \"y\" or \"n\"."
+      echo "${color_red}❌ Please enter either \"y\" or \"n\"."
     fi
   fi
   if [ "$2" == "addspace" ]; then
@@ -210,41 +210,41 @@ if [ "$1" == "tweak" ]; then
       defaults write com.apple.dock persistent-apps -array-add '{tile-type="spacer-tile";}'
       killall Dock
     fi
-    printf "${color_green}✅ Added a spacer to your dock."
-    printf "ℹ️  If it didn't work, you may have to run the command again."
+    echo "${color_green}✅ Added a spacer to your dock."
+    echo "ℹ️  If it didn't work, you may have to run the command again."
   fi
   if [ "$2" == "instadock" ]; then
     if [ "$3" == "n" ]; then
       defaults delete com.apple.Dock autohide-delay
       killall Dock
-      printf "${color_green}✅ Disabled instant dock reveal."
+      echo "${color_green}✅ Disabled instant dock reveal."
     else
       defaults write com.apple.Dock autohide-delay -float 0
       killall Dock
-      printf "${color_green}✅ Enabled instant dock reveal."
+      echo "${color_green}✅ Enabled instant dock reveal."
     fi
   fi
 fi
 
 if [ "$1" == "dl" ]; then
   if [ ! "$foxpath/ytdlp" ]; then
-    printf "${color_red}⚠️ ytdlp is required to use the \"dl\" command"
+    echo "${color_red}⚠️ ytdlp is required to use the \"dl\" command"
     foxint-install package ytdlp
   fi
   read -p "🎥 Please enter YouTube URL: " yturl
   if [ "$yturl" == *"/playlist?list="* ]; then
-    printf "📄 Playlist detected. Which items do you want to download?"
+    echo "📄 Playlist detected. Which items do you want to download?"
     read -p "Format: \"first:last\" OR \"all\"" playlistitems
     if [ "$playlistitems" == "all" ]; then
       ytdlp -q --progress -f mp4 --embed-thumbnail -o "%(title)s.%(ext)s" "$yturl"
-      printf "${color_green}✅ Saved all playlist items to your home folder!"
+      echo "${color_green}✅ Saved all playlist items to your home folder!"
     else
       ytdlp -q --progress -f mp4 --playlist-items $playlistitems --embed-thumbnail -o "%(title)s.%(ext)s" "$yturl"
-      printf "${color_green}✅ Saved selected playlist items to your home folder!"
+      echo "${color_green}✅ Saved selected playlist items to your home folder!"
     fi
   else
    ytdlp -q --progress -f mp4 --embed-thumbnail -o "%(title)s.%(ext)s" "$yturl"
-   printf "${color_green}✅ Saved the video to your home folder! "
+   echo "${color_green}✅ Saved the video to your home folder! "
   fi
 fi
-printf "${reset}"
+echo "${reset}"
