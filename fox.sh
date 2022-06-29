@@ -20,7 +20,7 @@ if [ -z "$1" ]; then
   sleep $del
   echo ""
   sleep $del
-  echo "===== 📄 Commands ======================================="
+  print "${bold}===== 📄 Commands ======================================="
   sleep $del
   echo "⬇️  install <package> [-c] • Installs a package"
   sleep $del
@@ -45,9 +45,9 @@ if [ -z "$1" ]; then
   echo "❌ remove                 • Removes FoxCMD from your computer"
   echo ""
   sleep $del
-  echo "Command syntax: \"fox <command> <arguments>\" "
+  print "Command syntax: ${color_blue}\$ fox <command> <arguments>"
   sleep $del
-  echo "Arguments: [optional] <required>"
+  print "Arguments: ${color_green}[optional] ${color_yellow}<required>"
   sleep $del
 fi
 
