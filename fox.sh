@@ -14,7 +14,7 @@ bgcolor_black="\u001b[40m";bgcolor_red="\u001b[41m";bgcolor_green="\u001b[42m";b
 
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.6.1"
+ver="4.6.2"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
