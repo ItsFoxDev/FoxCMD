@@ -4,20 +4,16 @@
 # ║ License. It can be viewed at https://bit.ly/agplraw.          ║
 # ╚═══════════════════════════════════════════════════════════════╝
 
-# ===[ 🎨 COLOUR SETUP ]======================
-# ===[ BASIC COLOURS ]========================
+# ===[ 🎨 COLOUR SETUP ]====================== #
 color_black="\u001b[30m";color_red="\u001b[31m";color_green="\u001b[32m";color_yellow="\u001b[33m";color_blue="\u001b[34m";color_cyan="\u001b[36m";color_white="\u001b[37m";color_magenta="\u001b[35m";color_pink="\u001b[35m"
-# ===[ BOLDED COLOURS ]========================
 bold_black="\u001b[30m;1";bold_red="\u001b[31m;1";bold_green="\u001b[32m;1";bold_yellow="\u001b[33m;1";bold_blue="\u001b[34m;1";bold_cyan="\u001b[36m;1";bold_white="\u001b[37m;1"
-# ===[ FORMATTING ]============================
 bold="\u001b[1m";underline="\u001b[4m";invert="\u001b[7m";reset="\u001b[0m"
-# ===[ BACKGROUND COLOURS ]====================
 bgcolor_black="\u001b[40m";bgcolor_red="\u001b[41m";bgcolor_green="\u001b[42m";bgcolor_yellow="\u001b[44m";bgcolor_blue="\u001b[44m";bgcolor_cyan="\u001b[46m";bgcolor_white="\u001b[47m"
-
+# ============================================ #
 
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.5.1"
+ver="4.6"
 if [ -z "$1" ]; then
   echo ""
   echo "🦊 FoxCMD v$ver"
