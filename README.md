@@ -24,9 +24,8 @@ The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-L
 ⬆️ update                 • Updates FoxCMD
 ❌ remove                 • Removes FoxCMD from your computer
 
-Command syntax: "fox <command> <arguments>" 
+Command syntax: $ fox <command> <arguments>
 Arguments: [optional] <required>
-
 
 🆕 New commands coming soon!
 ```
