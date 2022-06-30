@@ -13,14 +13,14 @@ bold="\033[1m"; italic="\033[3m"; underline="\033[4m"; strikethrough="\033[9m"; 
 
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.6.4"
+ver="4.6.5"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
   sleep $del
   echo -e ""
   sleep $del
-  echo -e "${bold}===== 📄 Commands ======================================="
+  echo -e "${bold}===== 📄 Commands =======================================${reset}"
   sleep $del
   echo -e "⬇️  install <package> [-c] • Installs a package"
   sleep $del
@@ -45,7 +45,7 @@ if [ -z "$1" ]; then
   echo -e "❌ remove                 • Removes FoxCMD from your computer"
   echo -e ""
   sleep $del
-  echo -e "Command syntax: ${color_blue}\$ fox <command> <arguments>"
+  echo -e "Command syntax: ${color_blue}\$ fox <command> <arguments>${reset}"
   sleep $del
   echo -e "Arguments: ${color_green}[optional] ${color_yellow}<required>"
   sleep $del
