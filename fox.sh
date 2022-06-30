@@ -76,11 +76,11 @@ fi
 if [ "$1" == "update" ]; then
   echo -e ""
   sleep $del
-  echo -e "⬇️  Downloading FoxCMD"
+  echo -e "${color_blue}⬇️  Downloading FoxCMD"
   sleep $del
   curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o $foxpath/fox
   curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/cmd/install.sh" -o $foxpath/foxint-install
-  echo -e "📥 Installing FoxCMD..."
+  echo -e "${color_blue}📥 Installing FoxCMD..."
   sleep $del
   chmod 755 $foxpath/fox
   chmod 755 $foxpath/foxint-install
@@ -107,7 +107,7 @@ if [ "$1" == "hdi" ]; then
   fi
 fi
 if [ "$1" == "starwars" ]; then
-  echo -e "Loading starwars. To exit, press CTRL+C"
+  echo -e "${color_yellow}⭐️ Loading starwars. To exit, press CTRL+C"
   sleep 1
   nc towel.blinkenlights.nl 23
 fi
@@ -119,27 +119,27 @@ if [ "$1" == "aiperson" ]; then
     echo -e "Syntax: \"fox aiperson <number of people>\""
   fi
   echo -e ""
-  echo -e "🏁 Setting things up..."
+  echo -e "${color_blue}🏁 Setting things up..."
   echo -e ""
   mkdir ~/people
   sleep 0.1
-  echo -e "🌐 Connecting to thispersondoesnotexist.com"
+  echo -e "${color_blue}🌐 Connecting to thispersondoesnotexist.com"
   sleep 0.1
   echo -e ""
   count=1
   for i in $(seq $2)
   do
-    echo -e "⬇️ Downloading image $count/$2"
+    echo -e "${color_blue}⬇️ Downloading image $count/$2"
     curl -fsSL "https://thispersondoesnotexist.com/image" -o ~/people/$count.jpg
     sleep 0.5
     count=$((count+1))
   done
   echo -e ""
-  echo -e "📂 Zipping files to desktop..."
+  echo -e "${color_blue}📂 Zipping files to desktop..."
   cd ~/people
   zip -q ~/Desktop/people.zip ./*
   sleep 0.3
-  echo -e "🧼 Cleaning up..."
+  echo -e "${color_blue}🧼 Cleaning up..."
   cd
   rm -r ~/people
   echo -e ""
@@ -147,7 +147,7 @@ if [ "$1" == "aiperson" ]; then
 fi
 if [ "$1" == "tweak" ]; then
   if [ "$2" == "list" ] || [  -z "$2" ]; then
-    echo -e "===== 🔧 Tweak list ====================================="
+    echo -e "${bold}===== 🔧 Tweak list =====================================${reset}"
     sleep $del
     echo -e "🗂  openline [n]      • Adds a divider between open apps"
     sleep $del
@@ -163,7 +163,7 @@ if [ "$1" == "tweak" ]; then
     sleep $del
     echo -e "Command syntax: \"fox tweak <tweak name>\" "
     sleep $del
-    echo -e "ℹ️ Add \"n\" to the end of the command to disable the tweak."
+    echo -e "${color_blue}ℹ️ Add \"n\" to the end of the command to disable the tweak."
   fi
   if [ "$2" == "openline" ]; then
     if [ "$3" == "n" ]; then
@@ -210,7 +210,7 @@ if [ "$1" == "tweak" ]; then
       killall Dock
     fi
     echo -e "${color_green}✅ Added a spacer to your dock."
-    echo -e "ℹ️  If it didn't work, you may have to run the command again."
+    echo -e "${color_blue}ℹ️  If it didn't work, you may have to run the command again."
   fi
   if [ "$2" == "instadock" ]; then
     if [ "$3" == "n" ]; then
@@ -231,8 +231,8 @@ if [ "$1" == "dl" ]; then
     foxint-install package ytdlp
   fi
   read -p "🎥 Please enter YouTube URL: " yturl
-  if [ "$yturl" == *"/playlist?list="* ]; then
-    echo -e "📄 Playlist detected. Which items do you want to download?"
+  if [ "$yturl" == *'/playlist?list='* ]; then
+    echo -e "${color_blue}📄 Playlist detected. Which items do you want to download?"
     read -p "Format: \"first:last\" OR \"all\"" playlistitems
     if [ "$playlistitems" == "all" ]; then
       ytdlp -q --progress -f mp4 --embed-thumbnail -o "%(title)s.%(ext)s" "$yturl"
