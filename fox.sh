@@ -6,15 +6,14 @@
 # ╚═══════════════════════════════════════════════════════════════╝
 
 # ===[ 🎨 COLOUR SETUP ]====================== #
-color_black="\u001b[30m";color_red="\u001b[31m";color_green="\u001b[32m";color_yellow="\u001b[33m";color_blue="\u001b[34m";color_cyan="\u001b[36m";color_white="\u001b[37m";color_magenta="\u001b[35m";color_pink="\u001b[35m"
-bold_black="\u001b[30m;1";bold_red="\u001b[31m;1";bold_green="\u001b[32m;1";bold_yellow="\u001b[33m;1";bold_blue="\u001b[34m;1";bold_cyan="\u001b[36m;1";bold_white="\u001b[37m;1"
-bold="\u001b[1m";underline="\u001b[4m";invert="\u001b[7m";reset="\u001b[0m"
-bgcolor_black="\u001b[40m";bgcolor_red="\u001b[41m";bgcolor_green="\u001b[42m";bgcolor_yellow="\u001b[44m";bgcolor_blue="\u001b[44m";bgcolor_cyan="\u001b[46m";bgcolor_white="\u001b[47m"
+color_black="\033[30m"; color_red="\033[31m"; color_green="\033[32m"; color_yellow="\033[33m"; color_blue="\033[34m"; color_magenta="\033[35m"; color_pink="\033[35m"; color_cyan="\033[36m"; color_white="\033[37m"
+bgcolor_black="\033[40m";bgcolor_red="\033[41m"; bgcolor_green="\033[42m"; bgcolor_yellow="\033[43m"; bgcolor_blue="\033[44m"; bgcolor_magenta="\033[45m"; bgcolor_pink="\033[45m"; bgcolor_cyan="\033[46m"; bgcolor_white="\033[47m"
+bold="\033[1m"; italic="\033[3m"; underline="\033[4m"; strikethrough="\033[9m"; reset="\033[0m"
 # ============================================ #
 
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.6.3"
+ver="4.6.4"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
