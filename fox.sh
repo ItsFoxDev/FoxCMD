@@ -13,7 +13,7 @@ bold="\033[1m"; italic="\033[3m"; underline="\033[4m"; strikethrough="\033[9m"; 
 
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.6.5"
+ver="4.6.6"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
