@@ -14,7 +14,7 @@ bold="\033[1m"; italic="\033[3m"; underline="\033[4m"; strikethrough="\033[9m"; 
 foxpath="$HOME/.foxcmd"
 cl=1
 del=0.01
-ver="4.8"
+ver="4.9.1"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
@@ -255,7 +255,7 @@ if [ "$1" == "dl" ]; then
   fi
   cl=0
 fi
-if [ "$cl" == "1"]; then
+if [ "$cl" == "1" ]; then
   echo
   sleep $del
   echo "${color_red}❌ Command not found: ${bold}$1${reset}"
