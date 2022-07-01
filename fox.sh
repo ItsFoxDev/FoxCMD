@@ -13,7 +13,7 @@ bold="\033[1m"; italic="\033[3m"; underline="\033[4m"; strikethrough="\033[9m"; 
 
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.6.8"
+ver="4.6.9"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
@@ -233,7 +233,7 @@ if [ "$1" == "dl" ]; then
   read -p "🎥 Please enter YouTube URL: " yturl
   if [[ "$yturl" == *'/playlist?list='* ]]; then
     echo -e "${color_blue}📄 Playlist detected. Which items do you want to download?"
-    read -p "Format: \"first:last\" OR \"all\" Items: " playlistitems
+    read -p "Format: \"first:last\" OR \"all\". Items: " playlistitems
     if [ "$playlistitems" == "all" ]; then
       ytdlp -q --progress -f mp4 --embed-thumbnail -o '%(title)s.%(ext)s' "$yturl"
       echo -e "${color_green}✅ Saved all playlist items to your home folder!"
