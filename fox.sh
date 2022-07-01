@@ -13,7 +13,7 @@ bold="\033[1m"; italic="\033[3m"; underline="\033[4m"; strikethrough="\033[9m"; 
 
 foxpath="$HOME/.foxcmd"
 del=0.01
-ver="4.6.9"
+ver="4.7"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
@@ -29,8 +29,6 @@ if [ -z "$1" ]; then
   echo -e "👀 hdi <y/n> [o]          • Hides icons on your desktop" 
   sleep $del
   echo -e "⭐️ starwars               • Watch ascii starwars"
-  sleep $del
-  echo -e "🔆 clean                  • Cleans your mac's cache"
   sleep $del
   echo -e "⬇️  dl                     • Downloads a youtube video"
   sleep $del
