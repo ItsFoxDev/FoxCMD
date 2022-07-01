@@ -12,8 +12,9 @@ bold="\033[1m"; italic="\033[3m"; underline="\033[4m"; strikethrough="\033[9m"; 
 # ============================================ #
 
 foxpath="$HOME/.foxcmd"
+cl=1
 del=0.01
-ver="4.7"
+ver="4.8"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
@@ -47,15 +48,18 @@ if [ -z "$1" ]; then
   sleep $del
   echo -e "Arguments: ${color_green}[optional] ${color_yellow}<required>"
   sleep $del
+  cl=0
 fi
 
 # Redirects "install" and "list" commands to seperate command manager
 if [ "$1" == "install" ]; then
   foxint-install $1 $2 $3 $4 $5
+  cl=0
 fi
 
 if [ "$1" == "list" ]; then
   foxint-install list;
+  cl=0
 fi
 
 if [ "$1" == "remove" ]; then
@@ -70,6 +74,7 @@ if [ "$1" == "remove" ]; then
   else
     echo -e "${color_red}❌ Please enter either \"y\" or \"n\"."
   fi
+  cl=0
 fi
 if [ "$1" == "update" ]; then
   echo -e ""
@@ -84,6 +89,7 @@ if [ "$1" == "update" ]; then
   chmod 755 $foxpath/foxint-install
   echo -e "${color_green}✅ FoxCMD v2 is has been successfully updated!"
   sleep $del
+  cl=0
 fi
 if [ "$1" == "hdi" ]; then
   if [ "$2" == "y" ]; then
@@ -103,11 +109,13 @@ if [ "$1" == "hdi" ]; then
   if [ -z "$2" ]; then
     echo -e "${color_red}❌ Please use \"fox hdi y\" or \"fox hdi n\""
   fi
+  cl=0
 fi
 if [ "$1" == "starwars" ]; then
   echo -e "${color_yellow}⭐️ Loading starwars. To exit, press CTRL+C"
   sleep 1
   nc towel.blinkenlights.nl 23
+  cl=0
 fi
 
 if [ "$1" == "aiperson" ]; then
@@ -142,6 +150,7 @@ if [ "$1" == "aiperson" ]; then
   rm -r ~/people
   echo -e ""
   echo -e "${color_green}✅ Saved $2 people to your desktop!"
+  cl=0
 fi
 if [ "$1" == "tweak" ]; then
   if [ "$2" == "list" ] || [  -z "$2" ]; then
@@ -221,6 +230,7 @@ if [ "$1" == "tweak" ]; then
       echo -e "${color_green}✅ Enabled instant dock reveal."
     fi
   fi
+  cl=0
 fi
 
 if [ "$1" == "dl" ]; then
@@ -243,5 +253,13 @@ if [ "$1" == "dl" ]; then
    ytdlp -q --progress -f mp4 --embed-thumbnail -o '%(title)s.%(ext)s' "$yturl"
    echo -e "${color_green}✅ Saved the video to your home folder! "
   fi
+  cl=0
+fi
+if [ "$cl" == "1"]; then
+  echo
+  sleep $del
+  echo "${color_red}❌ Command not found: ${bold}$1${reset}"
+  sleep $del
+  echo "${color_yellow}💡 Run ${bold}\"fox\"${reset}${color_yellow} to see the command list"
 fi
 echo -e "${reset}"
