@@ -16,7 +16,6 @@ The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-L
 📦 list                   • Lists installable packages
 👀 hdi <y/n> [o]          • Hides icons on your desktop
 ⭐️ starwars               • Watch ascii starwars
-🔆 clean                  • Cleans your mac's cache
 ⬇️ dl                     • Downloads a youtube video
 🤖 aiperson <count>       • Bulk fetches thispersondoesnotexist.com
 🔧 tweak <list/tweak>     • Simple tweaks for your mac
