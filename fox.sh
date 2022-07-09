@@ -14,7 +14,7 @@ bold="\033[1m"; italic="\033[3m"; underline="\033[4m"; strikethrough="\033[9m"; 
 foxpath="$HOME/.foxcmd"
 cl=1
 del=0.01
-ver="4.10"
+ver="4.10.1"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
@@ -244,10 +244,10 @@ if [ "$1" == "dl" ]; then
     echo -e "${color_blue}📄 Playlist detected. Which items do you want to download?"
     read -p "Format: \"first:last\" OR \"all\". Items: " playlistitems
     if [ "$playlistitems" == "all" ]; then
-      ytdlp -q --progress -f mp4 --embed-thumbnail -o '%(title)s.%(ext)s' "$yturl"
+      ytdlp --progress -f mp4 --embed-thumbnail -o '%(title)s.%(ext)s' "$yturl"
       echo -e "${color_green}✅ Saved all videos in playlist to your home folder!"
     else
-      ytdlp -q --progress -f mp4 --playlist-items $playlistitems --embed-thumbnail -o '%(title)s.%(ext)s' "$yturl"
+      ytdlp --progress -f mp4 --playlist-items $playlistitems --embed-thumbnail -o '%(title)s.%(ext)s' "$yturl"
       echo -e "${color_green}✅ Saved selected videos in playlist to your home folder!"
     fi
   else
@@ -255,10 +255,10 @@ if [ "$1" == "dl" ]; then
       echo -e "${color_blue}📄 Channel detected. Which items do you want to download?"
       read -p "Format: \"first:last\" OR \"all\". Items: " channelitems
       if [ "$channelitems" == "all" ]; then
-        ytdlp -q --progress -f mp4 --embed-thumbnail -o '%(title)s.%(ext)s' "$yturl"
+        ytdlp --progress -f mp4 --embed-thumbnail -o '%(title)s.%(ext)s' "$yturl"
         echo -e "${color_green}✅ Saved all of the channels videos to your home folder!"
       else
-        ytdlp -q --progress -f mp4 --playlist-items $channelitems --embed-thumbnail -o '%(title)s.%(ext)s' "$yturl"
+        ytdlp --progress -f mp4 --playlist-items $channelitems --embed-thumbnail -o '%(title)s.%(ext)s' "$yturl"
         echo -e "${color_green}✅ Saved the channels selected videos items to your home folder!"
       fi
     else
