@@ -9,6 +9,10 @@
 color_black="\033[30m"; color_red="\033[31m"; color_green="\033[32m"; color_yellow="\033[33m"; color_blue="\033[34m"; color_magenta="\033[35m"; color_pink="\033[35m"; color_cyan="\033[36m"; color_white="\033[37m"
 bgcolor_black="\033[40m";bgcolor_red="\033[41m"; bgcolor_green="\033[42m"; bgcolor_yellow="\033[43m"; bgcolor_blue="\033[44m"; bgcolor_magenta="\033[45m"; bgcolor_pink="\033[45m"; bgcolor_cyan="\033[46m"; bgcolor_white="\033[47m"
 bold="\033[1m"; italic="\033[3m"; underline="\033[4m"; strikethrough="\033[9m"; reset="\033[0m"
+# ===[ 📜 FUNCTIONS SETUP ]=================== #
+repchar() { for i in {1..$2}; do echo -n "$1"; done ; }
+progress(){ if [ -n "$2" ]; then msg="$2 "; fi; echo -n "$msg[                              ]"; echo -e -n "\r$msg["; for i in {1..30}; do echo -n "#"; sleep $1; done; echo "]" ; }
+usingsudo(){ if [[ $EUID -ne 0 ]]; then return 1; fi }
 # ============================================ #
 
 foxpath="$HOME/.foxcmd"
