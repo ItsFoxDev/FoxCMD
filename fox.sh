@@ -18,7 +18,7 @@ usingsudo(){ if [[ $EUID -ne 0 ]]; then return 1; fi }
 foxpath="$HOME/.foxcmd"
 cl=1
 del=0.01
-ver="5.1"
+ver="5.1.1"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
@@ -41,7 +41,7 @@ if [ -z "$1" ]; then
   sleep $del
   echo -e "🔧 tweak <list/tweak>     • Simple tweaks for your mac"
   sleep $del
-  echo -e "🔄  ezconv                 • Simplified ffmpeg CLI"
+  echo -e "🔄 ezconv                 • Simplified ffmpeg CLI"
   sleep $del
   echo -e ""
   sleep $del
