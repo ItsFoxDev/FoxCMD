@@ -18,7 +18,7 @@ usingsudo(){ if [[ $EUID -ne 0 ]]; then return 1; fi }
 foxpath="$HOME/.foxcmd"
 cl=1
 del=0.01
-ver="4.10.3"
+ver="5.1"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
@@ -40,6 +40,8 @@ if [ -z "$1" ]; then
   echo -e "🤖 aiperson <count>       • Bulk fetches thispersondoesnotexist.com"
   sleep $del
   echo -e "🔧 tweak <list/tweak>     • Simple tweaks for your mac"
+  sleep $del
+  echo -e "🔄  ezconv                 • Simplified ffmpeg CLI"
   sleep $del
   echo -e ""
   sleep $del
@@ -270,6 +272,20 @@ if [ "$1" == "dl" ]; then
      echo -e "${color_green}✅ Saved the video to your home folder! "
     fi
   fi
+  cl=0
+fi
+if [ "$1" == "ezconv" ]; then
+  read -p "📄 File: " fullfile
+  read -p "🔄 New format (E.x: \"webm\", \"mp4\"): " newformat
+  fullfile=$(echo $fullfile | tr -d "'")
+  filename=$(basename -- "$fullfile")
+  extension="${filename##*.}"
+  filename="${filename%.*}"
+  echo "🔄  Converting from $extension to $newformat..."
+  cp $fullfile $HOME/converting.$extension
+  ffmpeg -i $fullfile "$HOME/Desktop/$filename.$newformat"
+  rm $HOME/converting.$extension
+  echo "✅ Converted $filename.$extension to $newformat format."
   cl=0
 fi
 if [ "$cl" == "1" ]; then
