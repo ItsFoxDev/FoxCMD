@@ -31,9 +31,6 @@ if [ "$1" == "list" ]; then
   echo "⬇️  yt-dlp      • Better youtube-dl"
   sleep $del
   echo "🐍 python      • Popular coding language"
-  sleep $del
-  echo ""
-  sleep $del
 fi
 if [ "$1" == "package" ]; then
   if [ "$2" == "brew" ]; then
@@ -79,8 +76,6 @@ if [ "$1" == "package" ]; then
       echo ""
       sleep $del
       echo "✅ Installed youtube-dl"
-      sleep $del
-      echo ""
     fi
   fi
   if [ "$2" == "ytdlp" ]; then
@@ -96,8 +91,6 @@ if [ "$1" == "package" ]; then
       echo ""
       sleep $del
       echo "✅ Installed yt-dlp"
-      sleep $del
-      echo ""
     fi
   fi
   if [ "$2" == "python" ]; then
@@ -123,8 +116,6 @@ if [ "$1" == "package" ]; then
       echo ""
       sleep $del
       echo "✅ Installed Python!"
-      sleep $del
-      echo ""
     fi
   fi
   if [ "$2" == "ffmpeg" ]; then
@@ -193,7 +184,6 @@ if [ "$1" == "package" ]; then
       rm "~/nodejs.pkg"
       echo ""
       echo "✅ Installed NodeJS!"
-      echo ""
     fi
   fi
 fi
