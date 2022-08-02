@@ -18,7 +18,7 @@ usingsudo(){ if [[ $EUID -ne 0 ]]; then return 1; fi }
 foxpath="$HOME/.foxcmd"
 cl=1
 del=0.01
-ver="5.1.1"
+ver="5.2"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
@@ -59,7 +59,7 @@ fi
 
 # Redirects "install" and "list" commands to seperate command manager
 if [ "$1" == "install" ]; then
-  foxint-install $1 $2 $3 $4 $5
+  foxint-install package $2 $3 $4 $5
   cl=0
 fi
 
