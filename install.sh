@@ -11,7 +11,7 @@ bgcolor_black="\033[40m";bgcolor_red="\033[41m"; bgcolor_green="\033[42m"; bgcol
 bold="\033[1m"; italic="\033[3m"; underline="\033[4m"; strikethrough="\033[9m"; reset="\033[0m"
 # ===[ 📜 FUNCTIONS SETUP ]=================== #
 repchar() { for i in {1..$2}; do echo -n "$1"; done ; }
-progress(){ if [ -n "$2" ]; then msg="$2 "; fi; echo -n "$msg[                              ]"; echo -e -n "\r$msg["; for i in {1..30}; do echo -n "#"; sleep $1; done; echo "]" ; }
+progress () { spaces=""; printmsgprog () { if ! [ "${#1}" == "0" ]; then echo -n "$1 "; width=$(($(tput cols)-${#1}-3)); fi; if [ "${#1}" == "0" ]; then width=$(($(tput cols)-2)); fi }; printmsgprog "$2"; del=$(bc <<< "scale=10; ${1}/${width}"); for i in $(seq $width); do spaces="$spaces-"; done; echo -n -e "[$spaces]\r"; printmsgprog "$2"; echo -n "["; for i in $(seq $width); do echo -n "#"; sleep ${del}; done; echo "]" }
 usingsudo(){ if [[ $EUID -ne 0 ]]; then return 1; fi }
 # ============================================ #
 
@@ -39,16 +39,16 @@ if [ "$confirm" == "" ]; then
   echo -e "${color_yellow}🦊 Starting FoxCMD installation..."
   mkdir ~/.foxcmd &> /dev/null
   chmod a+w ~/.foxcmd
-  progress 0.01 "📂 Setting up directory    "
+  progress 0.5 "📂 Setting up directory"
   echo -n -e "${color_green}"
-  progress 0.01 "🏷  Adding to ZSH path      "
+  progress 0.2 "🏷  Adding to ZSH path"
   zshdir="$HOME/.zshrc"
   if grep -s "export PATH=\"\$PATH:\$HOME/.foxcmd\"" &> /dev/null "$zshdir"; then
     echo -n -e "${color_green}"
   else
     echo -e "export PATH=\"\$PATH:\$HOME/.foxcmd\"" >> .zshrc
   fi
-  progress 0.01 "🏷  Adding to BASH path     "
+  progress 0.2 "🏷  Adding to BASH path"
   bashdir="$HOME/.bashrc"
   if grep -s "export PATH=\"\$PATH:\$HOME/.foxcmd\"" &> /dev/null "$bashdir"; then
     echo -n -e "${color_green}"
@@ -56,10 +56,10 @@ if [ "$confirm" == "" ]; then
     echo -e "export PATH=\"\$PATH:\$HOME/.foxcmd\"" >> .bashrc
   fi
   echo -n -e "${color_blue}"
-  progress 0.06 "⬇️  Downloading FoxCMD      "
+  progress 1 "⬇️  Downloading FoxCMD"
   curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/fox.sh" -o ~/.foxcmd/fox -#
   curl -fsSL "https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/cmd/install.sh" -o ~/.foxcmd/foxint-install -#
-  progress 0.03 "📥 Installing FoxCMD       "
+  progress 0.4 "📥 Installing FoxCMD"
   chmod 755 ~/.foxcmd/fox
   chmod 755 ~/.foxcmd/foxint-install
   sleep $del
