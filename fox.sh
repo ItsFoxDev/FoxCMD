@@ -11,14 +11,14 @@ bgcolor_black="\033[40m";bgcolor_red="\033[41m"; bgcolor_green="\033[42m"; bgcol
 bold="\033[1m"; italic="\033[3m"; underline="\033[4m"; strikethrough="\033[9m"; reset="\033[0m"
 # ===[ 📜 FUNCTIONS SETUP ]=================== #
 repchar() { for i in {1..$2}; do echo -n "$1"; done ; }
-progress(){ if [ -n "$2" ]; then msg="$2 "; fi; echo -n "$msg[                              ]"; echo -e -n "\r$msg["; for i in {1..30}; do echo -n "#"; sleep $1; done; echo "]" ; }
+progress () { spaces=""; printmsgprog () { if ! [ "${#1}" == "0" ]; then echo -n "$1 "; width=$(($(tput cols)-${#1}-3)); fi; if [ "${#1}" == "0" ]; then width=$(($(tput cols)-2)); fi }; printmsgprog "$2"; del=$(bc <<< "scale=10; ${1}/${width}"); for i in $(seq $width); do spaces="$spaces-"; done; echo -n -e "[$spaces]\r"; printmsgprog "$2"; echo -n "["; for i in $(seq $width); do echo -n "#"; sleep ${del}; done; if [ "$3" == "nr" ]; then echo -n -e "]\r"; else echo "]"; fi }
 usingsudo(){ if [[ $EUID -ne 0 ]]; then return 1; fi }
 # ============================================ #
 
 foxpath="$HOME/.foxcmd"
 cl=1
 del=0.01
-ver="5.2"
+ver="5.3"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
@@ -142,9 +142,8 @@ if [ "$1" == "aiperson" ]; then
   count=1
   for i in $(seq $2)
   do
-    echo -e "${color_blue}⬇️ Downloading image $count/$2"
+    progress 0.7 "⬇️ Downloading ${count}/${2}"
     curl -fsSL "https://thispersondoesnotexist.com/image" -o ~/people/$count.jpg
-    sleep 0.5
     count=$((count+1))
   done
   echo -e ""
@@ -283,7 +282,7 @@ if [ "$1" == "ezconv" ]; then
   filename="${filename%.*}"
   echo "🔄  Converting from $extension to $newformat..."
   cp $fullfile $HOME/converting.$extension
-  ffmpeg -i $fullfile "$HOME/Desktop/$filename.$newformat"
+  ffmpeg -i "$fullfile" "$HOME/Desktop/$filename.$newformat"
   rm $HOME/converting.$extension
   echo "✅ Converted $filename.$extension to $newformat format."
   cl=0
