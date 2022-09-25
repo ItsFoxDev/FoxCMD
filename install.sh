@@ -70,4 +70,4 @@ else
   echo ""
   echo -e "{color_red}❌ Install was cancelled.${reset}"
 fi
-echo -e
+echo -e ""
