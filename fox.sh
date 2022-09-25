@@ -18,7 +18,7 @@ usingsudo(){ if [[ $EUID -ne 0 ]]; then return 1; fi }
 foxpath="$HOME/.foxcmd"
 cl=1
 del=0.01
-ver="5.3"
+ver="5.3.1"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
@@ -142,7 +142,7 @@ if [ "$1" == "aiperson" ]; then
   count=1
   for i in $(seq $2)
   do
-    progress 0.7 "⬇️ Downloading ${count}/${2}"
+    progress 0.7 "⬇️ Downloading ${count}/${2}" nr
     curl -fsSL "https://thispersondoesnotexist.com/image" -o ~/people/$count.jpg
     count=$((count+1))
   done
