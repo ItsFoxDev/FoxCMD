@@ -9,7 +9,7 @@ Simply run this command in your macOS terminal, and follow the prompts.
 The repository for legacy FoxCMD is [here](https://github.com/ItsFoxDev/FoxCMD-Legacy)
 <br>Note that the legacy version is no longer maintained.
 
-# 📄 Commands
+# 📄 Commands 
 ```
 ===== 📄 Commands =======================================
 ⬇️ install <package> [-c] • Installs a package
