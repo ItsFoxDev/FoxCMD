@@ -18,7 +18,7 @@ usingsudo(){ if [[ $EUID -ne 0 ]]; then return 1; fi }
 foxpath="$HOME/.foxcmd"
 cl=1
 del=0.01
-ver="5.3.1"
+ver="5.3.3"
 if [ -z "$1" ]; then
   echo -e ""
   echo -e "🦊 FoxCMD v$ver"
@@ -256,7 +256,7 @@ if [ "$1" == "dl" ]; then
       echo -e "${color_green}✅ Saved selected videos in playlist to your home folder!"
     fi
   else
-    if [[ "$yturl" == *'/c/'* ]]; then
+    if [[ "$yturl" == *'/c/'* ]] || [[ "$yturl" == *'/@'* ]] ; then
       echo -e "${color_blue}📄 Channel detected. Which items do you want to download?"
       read -p "Format: \"first:last\" OR \"all\". Items: " channelitems
       if [ "$channelitems" == "all" ]; then
