@@ -1,7 +1,9 @@
 ![Banner](https://github.com/ItsFoxDev/FoxCMD/raw/main/img/banner-round.png)
 ---
 # ⬇️ Install
+
 Simply run this command in your macOS terminal, and follow the prompts.
+> ⚠️ FoxCMD is no longer maintained, bugs may occur
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ItsFoxDev/FoxCMD/main/install.sh)" 
 ```
